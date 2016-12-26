@@ -1,0 +1,11 @@
+{
+  "name": "confessions",
+  "version": "1.0.0",
+  "description": "A website designed to host confessions for 24 hours",
+  "main": "main.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "author": "bwbonanno",
+  "license": "ISC"
+}
