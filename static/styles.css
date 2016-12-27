@@ -1,0 +1,42 @@
+body {
+  font: sans-serif;
+}
+
+nav.navbar {
+  background: rgb(64,61,61);
+}
+
+nav.navbar div.container a.navbar-brand, 
+nav.navbar div.container #navbar ul.nav li a {
+  color: rgb(255,255,255);
+  font-size: 210%;
+}
+
+a {
+  text-decoration: none;
+}
+
+a:hover, 
+nav.navbar div.container #navbar ul.nav li a:hover {
+  text-decoration: none;
+  background: inherit;
+  color: rgb(255,255,255);
+  list-style: none;
+}
+
+nav.navbar a {
+  text-decoration: none;
+}
+
+.container {
+  padding-top: 0.4%;
+  padding-bottom: 0.4%;
+  width: 75%;
+}
+a:focus {
+  outline: none;
+}
+
+#body {
+  margin-top: 5%;
+}
