@@ -1,8 +1,15 @@
 var express = require('express');
 var path    = require("path");
 var app     = express();
-var port    = process.env.PORT || 3000;
 var cors    = require("cors");
+var pg      = require("pg");
+var port    = process.env.PORT || 3000;
+
+var client;
+pg.connect(process.env.DATABASE_URL, function(err, c, done){
+  client = c;
+  console.log("Connected!");
+});
 
 // Automatically send static content //
 app.use(function(req, res, next){

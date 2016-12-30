@@ -27,7 +27,7 @@ var FeedComponent = (function () {
         core_1.Component({
             selector: 'feed',
             providers: [post_service_1.PostService],
-            template: "\n  <h1>TEST MOFO!</h1>\n  <ul class=\"postsList\">\n    <li *ngFor='let post of posts'>\n      <div class=\"postDiv\">\n        {{post}}\n      </div>\n    </li>\n  </ul>\n  "
+            template: "\n  <ul class=\"postsList\">\n    <li *ngFor='let post of posts'>\n      <post [post]=\"post\"></post>\n    </li>\n  </ul>\n  "
         }), 
         __metadata('design:paramtypes', [post_service_1.PostService])
     ], FeedComponent);
