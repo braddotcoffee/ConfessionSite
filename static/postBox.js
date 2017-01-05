@@ -14,7 +14,7 @@ $('#postBox').keyup(function(){
   updateBox();
 });
 
-$("#postBox").live("input", function(){
+$("#postBox").on("input", function(){
   this.style.height = 'auto';
   this.style.height = this.scrollHeight + "px";
 });

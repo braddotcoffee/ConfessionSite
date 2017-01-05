@@ -1,48 +1,55 @@
 <!DOCTYPE html>
 <html>
   <head>
+    <base href="/">
     <title>TempFession</title>
     <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1, user-scalable=no">
     <link rel="stylesheet" href="/node_modules/bootstrap/dist/css/bootstrap-theme.css">
     <link rel="stylesheet" href="/node_modules/bootstrap/dist/css/bootstrap.css">
     <link rel="stylesheet" href="styles.css">
     <link rel="stylesheet" href="dots.css">
-
+    <link href="data:image/x-icon;base64,AAABAAEAEBAQAAEABAAoAQAAFgAAACgAAAAQAAAAIAAAAAEABAAAAAAAgAAAAAAAAAAAAAAAEAAAAAAAAAAAAAAA////AAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAEREREREREREQAAAAAAAAARAREREREREBEBEREREREQEQERERERERARAREREREREBEBEREREQEQEQEREQAAABARARERAAAAEBEBEREAEQEQEQEREQARERARAREQAAEREBEBEREAEREQEQERERERERARAAAAAAAAABEREREREREREAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAA" rel="icon" type="image/x-icon" />
     <!-- Polyfill(s) for older browsers -->
     <script src="node_modules/core-js/client/shim.min.js"></script>
-
-    <script src="node_modules/zone.js/dist/zone.js"></script>
+    <script src="node_modules/zone.js/dist/zone.js" ></script>
     <script src="node_modules/reflect-metadata/Reflect.js"></script>
     <script src="node_modules/systemjs/dist/system.src.js"></script>
-    <script src="//ajax.googleapis.com/ajax/libs/jquery/1.6.4/jquery.min.js"></script>
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/1.12.4/jquery.min.js"></script>
+    <script src='node_modules/bootstrap/dist/js/bootstrap.min.js'></script>
     <script src="systemjs.config.js"></script>
-
     <script>
       System.import('app').catch(function(err){ console.error(err); });
     </script>
   </head>
 
   <body>
-    <nav class="navbar navbar-fixed-top">
+    <nav class="navbar navbar-default navbar-fixed-top">
       <div class="container">
         <div class="navbar-header">
-          <button class="navbar-toggle collapsed" type="button" data-toggle="collapse" data-target="#navbar" aria-expanded="false" aria-controls="navbar">
-            <span class="sr-only">Toggle Navigation</span>
-            <span class="icon-bar">Test</span>
+          <button class="navbar-toggle" type="button" data-toggle="collapse" data-target="#navbar" aria-expanded="false" aria-controls="navbar">
+            <span class="icon-bar"></span>
+            <span class="icon-bar"></span>
+            <span class="icon-bar"></span>
+            <span class="icon-bar"></span>
           </button>
-          <a class="navbar-brand" href="#">tempfession</a>
+          <a class="navbar-brand" href="#">
+            tempfession
+          </a>
         </div>
-        <div id="navbar" class="navbar-collapse collapse">
+        <div id="navbar" class="navbar-collapse collapse nav-collapse">
           <ul class="nav navbar-nav navbar-right">
             <li>
-              <a href="#">top</a>
+              <a class="navLinks" href="/browse" routerLink="/browse" [routerLinkActive]="active">browse</a>
             </li>
             <li>
-              <a href="#">new</a>
+              <a class="navLinks" href="/top" routerLink="/top" [routerLinkActive]="active">top</a>
             </li>
             <li>
-              <a href="#">posts</a>
+              <a class="navLinks" href="/new" routerLink="/new" [routerLinkActive]="active">new</a>
+            </li>
+            <li>
+              <a class="navLinks" href="/posts" routerLink="/posts" [routerLinkActive]="active">posts</a>
             </li>
           </ul>
         </div>
@@ -52,7 +59,7 @@
     <div id="body">
       <div class="createPost">
         <form action="" method="" onsubmit="return false;" class="search">
-          <textarea id="postBox"  maxlength="500" /></textarea>
+          <textarea id="postBox"  placeholder="Something on your mind?" maxlength="500" /></textarea>
           <button id="submitPost" type="">Submit
             <div id="charNum">
               500
@@ -61,8 +68,11 @@
         </form>
       </div>
 
-      <feed>
-        <div class="windows8">
+      <div>
+        <h1>24 Hour Confessions </h1>
+      </div>
+      <app>
+        <div class="windows8" >
           <div class="wBall" id="wBall_1">
             <div class="wInnerBall"></div>
           </div>
@@ -79,8 +89,10 @@
             <div class="wInnerBall"></div>
           </div>
         </div>
-      </feed>
+
+      </app>
     </div>
     <script src="postBox.js"></script>
+    <script src="makePost.js"></script>
   </body>
 </html>

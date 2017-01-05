@@ -1,15 +1,13 @@
-var express = require('express');
-var path    = require("path");
-var app     = express();
-var cors    = require("cors");
-var pg      = require("pg");
-var port    = process.env.PORT || 3000;
+var express    = require('express');
+var path       = require("path");
+var bodyParser = require("body-parser");
+var app        = express();
+var cors       = require("cors");
+var db         = require("./query.js");
+var port       = process.env.PORT || 3000;
 
-var client;
-pg.connect(process.env.DATABASE_URL, function(err, c, done){
-  client = c;
-  console.log("Connected!");
-});
+db.connectDB();
+
 
 // Automatically send static content //
 app.use(function(req, res, next){
@@ -17,9 +15,38 @@ app.use(function(req, res, next){
   return next();
 });
 
+app.use(bodyParser.json());
+app.use(bodyParser.urlencoded({
+  extended: true
+}));
+
 app.use(express.static(path.join(__dirname, "/static")));
 app.use("/app", express.static(path.join(__dirname, "/app")));
 app.use("/node_modules", express.static(path.join(__dirname, "/node_modules")));
+
+app.post("/addPost", function(req, res, next){
+  var reqBody = req.body;
+  if(reqBody.UID === null)
+    db.genID(reqBody.PID, reqBody.body, res);
+  else{
+    db.insertDB(reqBody.UID, reqBody.PID, reqBody.body);
+    res.set({
+      "Content-Type": "text/plain",
+      "X-Content-Type-Options": "nosniff"
+    });
+    res.end(reqBody.UID, 'utf-8');
+  }
+});
+
+app.get("/newPosts", function(req, res, next){
+  db.newPostsDB(res);
+})
+
+app.get("*", function(req, res){
+  res.sendFile(path.join(__dirname, '/static', '/index.html'));
+});
+
+
 
 app.listen(port, function(){
   console.log("App is listening on port " + port);

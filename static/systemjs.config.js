@@ -13,6 +13,9 @@
       // our app is within the app folder
       app: 'app',
 
+      "angular2-masonry": "node_modules/angular2-masonry",
+      "masonry-layout": 'node_modules/masonry-layout/dist/masonry.pkgd.min.js',
+
       // angular bundles
       '@angular/core': 'npm:@angular/core/bundles/core.umd.js',
       '@angular/common': 'npm:@angular/common/bundles/common.umd.js',
@@ -35,6 +38,11 @@
       },
       rxjs: {
         defaultExtension: 'js'
+      },
+
+      "angular2-masonry": {
+        defaultExtension: "js",
+        main: 'index'
       }
     }
   });
