@@ -9,14 +9,22 @@ import  'rxjs/add/operator/toPromise';
 @Injectable()
 export class PostService {
   newPosts = "/newPosts";
+  topPosts = "/topPosts";
 
   constructor(private http: Http){  }
 
-  getPosts(): Promise<Post[]>{
+  getNewPosts(): Promise<Post[]>{
     return this.http.get(this.newPosts)
-            .toPromise()
-            .then(response => response.json() as Post[])
-            .catch(this.handleError);
+    .toPromise()
+    .then(response => response.json() as Post[])
+    .catch(this.handleError);
+  }
+
+  getTopPosts(): Promise<Post[]>{
+    return this.http.get(this.topPosts)
+    .toPromise()
+    .then(response => response.json() as Post[])
+    .catch(this.handleError);
   }
 
   private handleError(error: any): Promise<any>{

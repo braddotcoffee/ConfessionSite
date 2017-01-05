@@ -10,32 +10,28 @@ var __metadata = (this && this.__metadata) || function (k, v) {
 };
 var core_1 = require('@angular/core');
 var post_service_1 = require('./post.service');
-var masonry_options_1 = require('./masonry.options');
-var BrowseComponent = (function () {
-    function BrowseComponent(postService) {
+var TopComponent = (function () {
+    function TopComponent(postService) {
         this.postService = postService;
     } // Inject PostService
     // Get Posts on Init //
-    BrowseComponent.prototype.ngOnInit = function () {
-        this.options = masonry_options_1.Options;
+    TopComponent.prototype.ngOnInit = function () {
         this.getPosts();
     };
     // Get Posts from PostService //
-    BrowseComponent.prototype.getPosts = function () {
+    TopComponent.prototype.getPosts = function () {
         var _this = this;
-        this.postService.getNewPosts().then(function (posts) {
-            _this.posts = posts;
-        });
+        this.postService.getTopPosts().then(function (posts) { return _this.posts = posts; });
     };
-    BrowseComponent = __decorate([
+    TopComponent = __decorate([
         core_1.Component({
-            selector: 'browse',
+            selector: 'top',
             providers: [post_service_1.PostService],
-            template: "\n  <masonry [options]=\"options\">\n    <div class=\"grid-sizer\"></div>\n    <masonry-brick *ngFor=\"let post of posts\">\n      <post class=\"brick\" [post]=\"post\"></post>\n    </masonry-brick>\n  </masonry>\n  "
+            template: "\n  <ul class=\"postsList\">\n    <li *ngFor='let post of posts'>\n      <post [post]=\"post\"></post>\n    </li>\n  </ul>\n  "
         }), 
         __metadata('design:paramtypes', [post_service_1.PostService])
-    ], BrowseComponent);
-    return BrowseComponent;
+    ], TopComponent);
+    return TopComponent;
 }());
-exports.BrowseComponent = BrowseComponent;
-//# sourceMappingURL=browse.component.js.map
+exports.TopComponent = TopComponent;
+//# sourceMappingURL=top.component.js.map

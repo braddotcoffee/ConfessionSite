@@ -28,8 +28,12 @@ exports.insertDB = function(uid, pid, body) {
   });
 }
 
-exports.rankDB = function(uid, body){
-  console.log("LATER");
+exports.rankDB = function(pid, body){
+  client.query("UPDATE posts SET rank=rank+1 WHERE pid=$1", [pid], function(err, result){
+    if(err)
+      console.log(err);
+    console.log("Rank updated");
+  })
 };
 
 exports.disconnectDB = function(){
@@ -40,6 +44,17 @@ exports.disconnectDB = function(){
 
 exports.newPostsDB = function(res){
   client.query("SELECT NOW()::timestamp AS currentDate, * from posts ORDER BY time DESC", function(err, result){
+    console.log(result.rows);
+    res.set({
+      "Content-Type": "application/json",
+      "X-Content-Type-Options": "nosniff"
+    });
+    res.end(JSON.stringify(result.rows));
+  })
+}
+
+exports.topPostsDB = function(res){
+  client.query("SELECT NOW()::timestamp AS currentDate, * from posts ORDER BY rank DESC", function(err, result){
     console.log(result.rows);
     res.set({
       "Content-Type": "application/json",

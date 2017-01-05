@@ -7,7 +7,8 @@ import { HttpModule      }  from  '@angular/http';
 import { MasonryModule   }  from  'angular2-masonry';
 
 import { AppComponent    }  from  './app.component';
-import { FeedComponent   }  from  './feed.component';
+import { TopComponent    }  from  './top.component';
+import { NewComponent    }  from  './new.component';
 import { PostComponent   }  from  './post.component';
 import { BrowseComponent }  from  './browse.component';
 
@@ -25,17 +26,17 @@ import { BrowseComponent }  from  './browse.component';
 
       {
         path: 'top',
-        component: FeedComponent
+        component: TopComponent
       },
 
       {
         path: 'new',
-        component: FeedComponent
+        component: NewComponent
       },
 
       {
         path: 'posts',
-        component: FeedComponent
+        component: NewComponent
       },
 
       {
@@ -53,7 +54,8 @@ import { BrowseComponent }  from  './browse.component';
   ],
 
   declarations: [
-    FeedComponent,
+    NewComponent,
+    TopComponent,
     PostComponent,
     BrowseComponent,
     AppComponent

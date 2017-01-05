@@ -48,6 +48,10 @@ app.get("/newPosts", function(req, res, next){
   db.newPostsDB(res);
 })
 
+app.get("/topPosts", function(req, res, next){
+  db.topPostsDB(res);
+})
+
 app.get("*", function(req, res){
   res.sendFile(path.join(__dirname, '/static', '/index.html'));
 });

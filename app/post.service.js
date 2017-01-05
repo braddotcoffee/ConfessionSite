@@ -15,9 +15,16 @@ var PostService = (function () {
     function PostService(http) {
         this.http = http;
         this.newPosts = "/newPosts";
+        this.topPosts = "/topPosts";
     }
-    PostService.prototype.getPosts = function () {
+    PostService.prototype.getNewPosts = function () {
         return this.http.get(this.newPosts)
+            .toPromise()
+            .then(function (response) { return response.json(); })
+            .catch(this.handleError);
+    };
+    PostService.prototype.getTopPosts = function () {
+        return this.http.get(this.topPosts)
             .toPromise()
             .then(function (response) { return response.json(); })
             .catch(this.handleError);

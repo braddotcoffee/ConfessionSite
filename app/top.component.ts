@@ -6,7 +6,7 @@ import { PostService   }  from  './post.service';
 import { PostComponent }  from  './post.component';
 
 @Component({
-  selector:'feed',
+  selector:'top',
   providers: [ PostService ],
   template: `
   <ul class="postsList">
@@ -17,7 +17,7 @@ import { PostComponent }  from  './post.component';
   `
 })
 
-export class FeedComponent implements OnInit {
+export class TopComponent implements OnInit {
   posts: Post[];
 
   constructor(private postService: PostService){  } // Inject PostService
@@ -29,6 +29,6 @@ export class FeedComponent implements OnInit {
 
   // Get Posts from PostService //
   getPosts(): void {
-    this.postService.getPosts().then(posts => this.posts = posts);
+    this.postService.getTopPosts().then(posts => this.posts = posts);
   }
 }

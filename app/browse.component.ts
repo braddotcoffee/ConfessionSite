@@ -36,7 +36,7 @@ export class BrowseComponent implements OnInit {
 
   // Get Posts from PostService //
   getPosts(): void {
-    this.postService.getPosts().then(posts => {
+    this.postService.getNewPosts().then(posts => {
       this.posts = posts;
     });  
   }

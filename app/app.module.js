@@ -15,7 +15,8 @@ var router_1 = require('@angular/router');
 var http_1 = require('@angular/http');
 var angular2_masonry_1 = require('angular2-masonry');
 var app_component_1 = require('./app.component');
-var feed_component_1 = require('./feed.component');
+var top_component_1 = require('./top.component');
+var new_component_1 = require('./new.component');
 var post_component_1 = require('./post.component');
 var browse_component_1 = require('./browse.component');
 var AppModule = (function () {
@@ -35,15 +36,15 @@ var AppModule = (function () {
                     },
                     {
                         path: 'top',
-                        component: feed_component_1.FeedComponent
+                        component: top_component_1.TopComponent
                     },
                     {
                         path: 'new',
-                        component: feed_component_1.FeedComponent
+                        component: new_component_1.NewComponent
                     },
                     {
                         path: 'posts',
-                        component: feed_component_1.FeedComponent
+                        component: new_component_1.NewComponent
                     },
                     {
                         path: '',
@@ -58,7 +59,8 @@ var AppModule = (function () {
                 ]),
             ],
             declarations: [
-                feed_component_1.FeedComponent,
+                new_component_1.NewComponent,
+                top_component_1.TopComponent,
                 post_component_1.PostComponent,
                 browse_component_1.BrowseComponent,
                 app_component_1.AppComponent
