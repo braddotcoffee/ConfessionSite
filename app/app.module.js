@@ -11,8 +11,13 @@ var __metadata = (this && this.__metadata) || function (k, v) {
 var core_1 = require('@angular/core');
 var platform_browser_1 = require('@angular/platform-browser');
 var forms_1 = require('@angular/forms');
+var router_1 = require('@angular/router');
+var http_1 = require('@angular/http');
+var angular2_masonry_1 = require('angular2-masonry');
+var app_component_1 = require('./app.component');
 var feed_component_1 = require('./feed.component');
 var post_component_1 = require('./post.component');
+var browse_component_1 = require('./browse.component');
 var AppModule = (function () {
     function AppModule() {
     }
@@ -20,14 +25,46 @@ var AppModule = (function () {
         core_1.NgModule({
             imports: [
                 platform_browser_1.BrowserModule,
+                http_1.HttpModule,
                 forms_1.FormsModule,
+                angular2_masonry_1.MasonryModule,
+                router_1.RouterModule.forRoot([
+                    {
+                        path: 'browse',
+                        component: browse_component_1.BrowseComponent
+                    },
+                    {
+                        path: 'top',
+                        component: feed_component_1.FeedComponent
+                    },
+                    {
+                        path: 'new',
+                        component: feed_component_1.FeedComponent
+                    },
+                    {
+                        path: 'posts',
+                        component: feed_component_1.FeedComponent
+                    },
+                    {
+                        path: '',
+                        redirectTo: '/browse',
+                        pathMatch: 'full'
+                    },
+                    {
+                        path: '**',
+                        redirectTo: '/browse',
+                        pathMatch: 'full'
+                    },
+                ]),
             ],
             declarations: [
                 feed_component_1.FeedComponent,
-                post_component_1.PostComponent
+                post_component_1.PostComponent,
+                browse_component_1.BrowseComponent,
+                app_component_1.AppComponent
             ],
             bootstrap: [
-                feed_component_1.FeedComponent
+                app_component_1.AppComponent
             ]
         }), 
         __metadata('design:paramtypes', [])

@@ -1,7 +1,7 @@
 export class Post {
+  uid: string;
+  pid: string;
   rank: number;
   body: string;
-  hour: number;
-  minute: number;
-  mer: string;
+  time: string;
 }

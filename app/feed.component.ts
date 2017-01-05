@@ -1,9 +1,9 @@
-import { Component } from '@angular/core';
-import { OnInit } from '@angular/core';
+import { Component     }  from  '@angular/core';
+import { OnInit        }  from  '@angular/core';
 
-import { Post } from './post';
-import { PostService } from './post.service';
-import { PostComponent } from './post.component';
+import { Post          }  from  './post';
+import { PostService   }  from  './post.service';
+import { PostComponent }  from  './post.component';
 
 @Component({
   selector:'feed',

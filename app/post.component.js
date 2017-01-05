@@ -13,6 +13,40 @@ var post_1 = require('./post');
 var PostComponent = (function () {
     function PostComponent() {
     }
+    PostComponent.prototype.ngOnInit = function () {
+        this.calculateDate();
+    };
+    PostComponent.prototype.calculateDate = function () {
+        this.postDate = new Date(this.post.time);
+        this.hour = this.postDate.getHours();
+        console.log(this.hour);
+        this.minute = this.postDate.getMinutes();
+        console.log(this.minute);
+        if (this.hour > 12) {
+            this.hour -= 12;
+            this.mer = "PM";
+        }
+        else if (this.hour === 12)
+            this.mer = "PM";
+        else
+            this.mer = "AM";
+        this.calculateTimeRemaining();
+    };
+    PostComponent.prototype.calculateTimeRemaining = function () {
+        var currentDate = new Date();
+        var diffDate = currentDate.getTime() - this.postDate.getTime();
+        var minutes = Math.floor(diffDate / 60000);
+        minutes = 1440 - minutes;
+        this.hoursLeft = Math.floor(minutes / 60);
+        this.minutesLeft = minutes - (this.hoursLeft * 60);
+        var hourString = this.hoursLeft.toString();
+        var minuteString = '';
+        if (this.minutesLeft < 10)
+            minuteString = "0" + this.minutesLeft.toString();
+        else
+            minuteString = this.minutesLeft.toString();
+        this.rem = hourString + ":" + minuteString + " remaining";
+    };
     __decorate([
         core_1.Input(), 
         __metadata('design:type', post_1.Post)
@@ -20,7 +54,7 @@ var PostComponent = (function () {
     PostComponent = __decorate([
         core_1.Component({
             selector: 'post',
-            template: "\n   <div class=\"panel post\">\n    <div class=\"panel-heading\">\n      {{post.hour}}:{{post.minute}} {{post.mer}}\n    </div>\n    <div class=\"panel-body\">\n      {{post.body}}\n    </div>\n  </div>\n  "
+            template: "\n    <div class=\"panel post\">\n      <div class=\"panel-heading\">\n        {{this.hour}}:{{this.minute}} {{this.mer}}\n        <span class=\"time-left\"> {{rem}} </span>\n      </div>\n      <div class=\"panel-body\">\n        {{post.body}}\n      </div>\n    </div>\n  "
         }), 
         __metadata('design:paramtypes', [])
     ], PostComponent);
