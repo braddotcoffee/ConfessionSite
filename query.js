@@ -39,13 +39,20 @@ exports.disconnectDB = function(){
 };
 
 exports.newPostsDB = function(res){
-  client.query("SELECT * FROM posts ORDER BY time DESC", function(err, result){
+  client.query("SELECT NOW()::timestamp AS currentDate, * from posts ORDER BY time DESC", function(err, result){
     console.log(result.rows);
     res.set({
       "Content-Type": "application/json",
       "X-Content-Type-Options": "nosniff"
     });
     res.end(JSON.stringify(result.rows));
+  })
+}
+
+exports.expireDB = function(end){
+  client.query("DELETE FROM posts WHERE DATE_PART('day', NOW()::timestamp-time) >= 1", function(err, result){
+    console.log("ENDING");
+    end();
   })
 }
 
@@ -61,8 +68,7 @@ exports.genID = function(PID, body, res) {
 
   client.query("SELECT * FROM posts WHERE uid=$1", [userID], function(err, result){
     if(result.rows.length !== 0)
-      exports.genID();
-    else{
+      exports.genID(); else{
       exports.insertDB(userID, PID, body)
       res.set({
         "Content-Type": "text/plain",

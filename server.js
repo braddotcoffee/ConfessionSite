@@ -1,12 +1,18 @@
-var express    = require('express');
-var path       = require("path");
-var bodyParser = require("body-parser");
-var app        = express();
-var cors       = require("cors");
-var db         = require("./query.js");
-var port       = process.env.PORT || 3000;
+var express      = require('express');
+var path         = require("path");
+var bodyParser   = require("body-parser");
+var cors         = require("cors");
+var AsyncPolling = require("async-polling");
+var db           = require("./query.js");
+var app          = express();
+var port         = process.env.PORT || 3000;
 
 db.connectDB();
+
+AsyncPolling(function(end){
+  console.log("EXPIRING");
+  db.expireDB(end);
+}, 60000).run();
 
 
 // Automatically send static content //

@@ -19,9 +19,11 @@ var PostComponent = (function () {
     PostComponent.prototype.calculateDate = function () {
         this.postDate = new Date(this.post.time);
         this.hour = this.postDate.getHours();
-        console.log(this.hour);
-        this.minute = this.postDate.getMinutes();
-        console.log(this.minute);
+        var minute = this.postDate.getMinutes();
+        if (minute < 10)
+            this.minute = "0" + minute.toString();
+        else
+            this.minute = minute.toString();
         if (this.hour > 12) {
             this.hour -= 12;
             this.mer = "PM";
@@ -33,12 +35,13 @@ var PostComponent = (function () {
         this.calculateTimeRemaining();
     };
     PostComponent.prototype.calculateTimeRemaining = function () {
-        var currentDate = new Date();
+        var currentDate = new Date(this.post.currentdate);
         var diffDate = currentDate.getTime() - this.postDate.getTime();
         var minutes = Math.floor(diffDate / 60000);
         minutes = 1440 - minutes;
         this.hoursLeft = Math.floor(minutes / 60);
         this.minutesLeft = minutes - (this.hoursLeft * 60);
+        console.log(this.minutesLeft);
         var hourString = this.hoursLeft.toString();
         var minuteString = '';
         if (this.minutesLeft < 10)
