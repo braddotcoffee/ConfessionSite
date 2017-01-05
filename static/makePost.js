@@ -23,6 +23,7 @@ function postResponse(req, post){
     localStorage.setItem("UID", req.response);
     document.getElementById("postBox").value = "";
     $("#postBox").blur();
+    window.location.reload(true);
     return;
   }
 }

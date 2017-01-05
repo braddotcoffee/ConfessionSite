@@ -36,9 +36,7 @@ export class PostComponent implements OnInit{
   calculateDate(): void {
     this.postDate = new Date(this.post.time); 
     this.hour = this.postDate.getHours();
-    console.log(this.hour)
     this.minute = this.postDate.getMinutes();
-    console.log(this.minute)
 
     if(this.hour > 12){
       this.hour -= 12;
