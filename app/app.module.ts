@@ -59,6 +59,7 @@ import { MyPostsComponent }  from  './myposts.component';
     TopComponent,
     PostComponent,
     BrowseComponent,
+    MyPostsComponent,
     AppComponent
   ],
 

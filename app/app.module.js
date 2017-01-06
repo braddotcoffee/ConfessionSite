@@ -64,6 +64,7 @@ var AppModule = (function () {
                 top_component_1.TopComponent,
                 post_component_1.PostComponent,
                 browse_component_1.BrowseComponent,
+                myposts_component_1.MyPostsComponent,
                 app_component_1.AppComponent
             ],
             bootstrap: [
