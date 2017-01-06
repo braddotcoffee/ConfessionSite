@@ -10,12 +10,14 @@ var __metadata = (this && this.__metadata) || function (k, v) {
 };
 var core_1 = require('@angular/core');
 var http_1 = require('@angular/http');
+var http_2 = require('@angular/http');
 require('rxjs/add/operator/toPromise');
 var PostService = (function () {
     function PostService(http) {
         this.http = http;
         this.newPosts = "/newPosts";
         this.topPosts = "/topPosts";
+        this.myPosts = "/myPosts";
     }
     PostService.prototype.getNewPosts = function () {
         return this.http.get(this.newPosts)
@@ -25,6 +27,14 @@ var PostService = (function () {
     };
     PostService.prototype.getTopPosts = function () {
         return this.http.get(this.topPosts)
+            .toPromise()
+            .then(function (response) { return response.json(); })
+            .catch(this.handleError);
+    };
+    PostService.prototype.getMyPosts = function () {
+        var headers = new http_1.Headers({ "Content-Type": "application/json" });
+        var options = new http_2.RequestOptions({ headers: headers });
+        return this.http.post(this.myPosts, { "uid": localStorage.getItem("UID") }, options)
             .toPromise()
             .then(function (response) { return response.json(); })
             .catch(this.handleError);

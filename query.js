@@ -64,6 +64,17 @@ exports.topPostsDB = function(res){
   })
 }
 
+exports.myPostsDB = function(uid, res){
+  client.query("SELECT NOW()::timestamp AS currentDate, * from posts WHERE uid=$1 ORDER BY time DESC", [uid], function(err, result){
+    console.log(result.rows);
+    res.set({
+      "Content-Type": "application/json",
+      "X-Content-Type-Options": "nosniff"
+    });
+    res.end(JSON.stringify(result.rows));
+  })
+}
+
 exports.expireDB = function(end){
   client.query("DELETE FROM posts WHERE DATE_PART('day', NOW()::timestamp-time) >= 1", function(err, result){
     console.log("ENDING");

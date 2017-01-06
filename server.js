@@ -52,6 +52,11 @@ app.get("/topPosts", function(req, res, next){
   db.topPostsDB(res);
 })
 
+app.post("/myPosts", function(req, res, next){
+  var uid = req.body.uid;
+  db.myPostsDB(uid, res);
+});
+
 app.get("*", function(req, res){
   res.sendFile(path.join(__dirname, '/static', '/index.html'));
 });

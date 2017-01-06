@@ -1,8 +1,9 @@
-import { Injectable    }  from  '@angular/core';
-import { Headers, Http }  from  '@angular/http';
+import { Injectable     }  from  '@angular/core';
+import { Headers, Http  }  from  '@angular/http';
+import { RequestOptions }  from  '@angular/http';
 
-import { POSTS         }  from  './mock-posts';
-import { Post          }  from  './post';
+import { POSTS          }  from  './mock-posts';
+import { Post           }  from  './post';
 
 import  'rxjs/add/operator/toPromise';
 
@@ -10,6 +11,7 @@ import  'rxjs/add/operator/toPromise';
 export class PostService {
   newPosts = "/newPosts";
   topPosts = "/topPosts";
+  myPosts = "/myPosts";
 
   constructor(private http: Http){  }
 
@@ -25,6 +27,16 @@ export class PostService {
     .toPromise()
     .then(response => response.json() as Post[])
     .catch(this.handleError);
+  }
+
+  getMyPosts(): Promise<Post[]>{
+    let headers = new Headers({"Content-Type": "application/json"});
+    let options = new RequestOptions({headers: headers});
+
+    return this.http.post(this.myPosts, {"uid": localStorage.getItem("UID")}, options)
+            .toPromise()
+            .then(response => response.json() as Post[])
+            .catch(this.handleError);
   }
 
   private handleError(error: any): Promise<any>{
