@@ -42,9 +42,18 @@ exports.disconnectDB = function(){
   })
 };
 
+exports.browsePostsDB = function(res){
+  client.query("SELECT NOW()::timestamp AS currentDate, * from posts ORDER BY RANDOM()", function(err, result){
+    res.set({
+      "Content-Type": "application/json",
+      "X-Content-Type-Options": "nosniff"
+    });
+    res.end(JSON.stringify(result.rows));
+  })
+}
+
 exports.newPostsDB = function(res){
   client.query("SELECT NOW()::timestamp AS currentDate, * from posts ORDER BY time DESC", function(err, result){
-    console.log(result.rows);
     res.set({
       "Content-Type": "application/json",
       "X-Content-Type-Options": "nosniff"
@@ -55,7 +64,6 @@ exports.newPostsDB = function(res){
 
 exports.topPostsDB = function(res){
   client.query("SELECT NOW()::timestamp AS currentDate, * from posts ORDER BY rank DESC", function(err, result){
-    console.log(result.rows);
     res.set({
       "Content-Type": "application/json",
       "X-Content-Type-Options": "nosniff"
@@ -66,7 +74,6 @@ exports.topPostsDB = function(res){
 
 exports.myPostsDB = function(uid, res){
   client.query("SELECT NOW()::timestamp AS currentDate, * from posts WHERE uid=$1 ORDER BY time DESC", [uid], function(err, result){
-    console.log(result.rows);
     res.set({
       "Content-Type": "application/json",
       "X-Content-Type-Options": "nosniff"

@@ -15,10 +15,17 @@ require('rxjs/add/operator/toPromise');
 var PostService = (function () {
     function PostService(http) {
         this.http = http;
+        this.browsePosts = "/browsePosts";
         this.newPosts = "/newPosts";
         this.topPosts = "/topPosts";
         this.myPosts = "/myPosts";
     }
+    PostService.prototype.getBrowsePosts = function () {
+        return this.http.get(this.browsePosts)
+            .toPromise()
+            .then(function (response) { return response.json(); })
+            .catch(this.handleError);
+    };
     PostService.prototype.getNewPosts = function () {
         return this.http.get(this.newPosts)
             .toPromise()

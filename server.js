@@ -48,6 +48,10 @@ app.get("/newPosts", function(req, res, next){
   db.newPostsDB(res);
 })
 
+app.get("/browsePosts", function(req, res, next){
+  db.browsePostsDB(res);
+})
+
 app.get("/topPosts", function(req, res, next){
   db.topPostsDB(res);
 })

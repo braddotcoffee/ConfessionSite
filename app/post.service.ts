@@ -9,11 +9,19 @@ import  'rxjs/add/operator/toPromise';
 
 @Injectable()
 export class PostService {
-  newPosts = "/newPosts";
-  topPosts = "/topPosts";
-  myPosts = "/myPosts";
+  browsePosts = "/browsePosts";
+  newPosts    = "/newPosts";
+  topPosts    = "/topPosts";
+  myPosts     = "/myPosts";
 
   constructor(private http: Http){  }
+
+  getBrowsePosts(): Promise<Post[]>{
+    return this.http.get(this.browsePosts)
+    .toPromise()
+    .then(response => response.json() as Post[])
+    .catch(this.handleError);
+  }
 
   getNewPosts(): Promise<Post[]>{
     return this.http.get(this.newPosts)
@@ -34,9 +42,9 @@ export class PostService {
     let options = new RequestOptions({headers: headers});
 
     return this.http.post(this.myPosts, {"uid": localStorage.getItem("UID")}, options)
-            .toPromise()
-            .then(response => response.json() as Post[])
-            .catch(this.handleError);
+    .toPromise()
+    .then(response => response.json() as Post[])
+    .catch(this.handleError);
   }
 
   private handleError(error: any): Promise<any>{

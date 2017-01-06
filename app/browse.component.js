@@ -23,7 +23,7 @@ var BrowseComponent = (function () {
     // Get Posts from PostService //
     BrowseComponent.prototype.getPosts = function () {
         var _this = this;
-        this.postService.getNewPosts().then(function (posts) {
+        this.postService.getBrowsePosts().then(function (posts) {
             _this.posts = posts;
         });
     };
