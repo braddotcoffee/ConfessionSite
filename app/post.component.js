@@ -57,7 +57,7 @@ var PostComponent = (function () {
     PostComponent = __decorate([
         core_1.Component({
             selector: 'post',
-            template: "\n    <div class=\"panel post\">\n      <div class=\"panel-heading\">\n        {{this.hour}}:{{this.minute}} {{this.mer}}\n        <span class=\"time-left\"> {{rem}} </span>\n      </div>\n      <div class=\"panel-body\">\n        {{post.body}}\n      </div>\n    </div>\n  "
+            template: "\n    <div class=\"panel post\">\n      <div class=\"panel-heading\">\n        {{this.hour}}:{{this.minute}} {{this.mer}}\n        <span class=\"time-left\"> {{rem}} </span>\n      </div>\n      <div class=\"panel-body\">\n        {{post.body}}\n      </div>\n      <div class=\"divider\"></div>\n      <div class=\"panel-footer\">\n        Filler text for now\n      </div>\n    </div>\n  "
         }), 
         __metadata('design:paramtypes', [])
     ], PostComponent);

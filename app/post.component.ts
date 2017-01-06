@@ -13,6 +13,10 @@ import { Post } from './post';
       <div class="panel-body">
         {{post.body}}
       </div>
+      <div class="divider"></div>
+      <div class="panel-footer">
+        Filler text for now
+      </div>
     </div>
   `
 })
