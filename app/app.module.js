@@ -19,6 +19,7 @@ var top_component_1 = require('./top.component');
 var new_component_1 = require('./new.component');
 var post_component_1 = require('./post.component');
 var browse_component_1 = require('./browse.component');
+var myposts_component_1 = require('./myposts.component');
 var AppModule = (function () {
     function AppModule() {
     }
@@ -44,7 +45,7 @@ var AppModule = (function () {
                     },
                     {
                         path: 'posts',
-                        component: new_component_1.NewComponent
+                        component: myposts_component_1.MyPostsComponent
                     },
                     {
                         path: '',

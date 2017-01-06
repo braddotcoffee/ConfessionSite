@@ -17,7 +17,7 @@ import { PostComponent }  from  './post.component';
   `
 })
 
-export class NewComponent implements OnInit {
+export class MyPostsComponent implements OnInit {
   posts: Post[];
 
   constructor(private postService: PostService){  } // Inject PostService

@@ -10,28 +10,28 @@ var __metadata = (this && this.__metadata) || function (k, v) {
 };
 var core_1 = require('@angular/core');
 var post_service_1 = require('./post.service');
-var NewComponent = (function () {
-    function NewComponent(postService) {
+var MyPostsComponent = (function () {
+    function MyPostsComponent(postService) {
         this.postService = postService;
     } // Inject PostService
     // Get Posts on Init //
-    NewComponent.prototype.ngOnInit = function () {
+    MyPostsComponent.prototype.ngOnInit = function () {
         this.getPosts();
     };
     // Get Posts from PostService //
-    NewComponent.prototype.getPosts = function () {
+    MyPostsComponent.prototype.getPosts = function () {
         var _this = this;
         this.postService.getMyPosts().then(function (posts) { return _this.posts = posts; });
     };
-    NewComponent = __decorate([
+    MyPostsComponent = __decorate([
         core_1.Component({
             selector: 'myposts',
             providers: [post_service_1.PostService],
             template: "\n  <ul class=\"postsList\">\n    <li *ngFor='let post of posts'>\n      <post [post]=\"post\"></post>\n    </li>\n  </ul>\n  "
         }), 
         __metadata('design:paramtypes', [post_service_1.PostService])
-    ], NewComponent);
-    return NewComponent;
+    ], MyPostsComponent);
+    return MyPostsComponent;
 }());
-exports.NewComponent = NewComponent;
+exports.MyPostsComponent = MyPostsComponent;
 //# sourceMappingURL=myposts.component.js.map

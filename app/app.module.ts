@@ -8,9 +8,10 @@ import { MasonryModule   }  from  'angular2-masonry';
 
 import { AppComponent    }  from  './app.component';
 import { TopComponent    }  from  './top.component';
-import { NewComponent    }  from  './new.component';
-import { PostComponent   }  from  './post.component';
-import { BrowseComponent }  from  './browse.component';
+import { NewComponent     }  from  './new.component';
+import { PostComponent    }  from  './post.component';
+import { BrowseComponent  }  from  './browse.component';
+import { MyPostsComponent }  from  './myposts.component';
 
 @NgModule({
   imports: [
@@ -36,7 +37,7 @@ import { BrowseComponent }  from  './browse.component';
 
       {
         path: 'posts',
-        component: NewComponent
+        component: MyPostsComponent
       },
 
       {
