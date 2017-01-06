@@ -12,7 +12,6 @@ function makePost(){
   req.open("POST", "/addPost", true);
   req.setRequestHeader("Content-type", "application/json;charset=UTF-8");
   var ID = localStorage.getItem("UID"); 
-  window.location.reload(true);
   req.send(JSON.stringify({"body": postBox.value, "UID": ID, "PID": genID()}));
 }
 
@@ -24,6 +23,7 @@ function postResponse(req, post){
     localStorage.setItem("UID", req.response);
     document.getElementById("postBox").value = "";
     $("#postBox").blur();
+    window.location.reload(true);
     return;
   }
 }
