@@ -241,3 +241,7 @@ clear: both;
     float: none;
     width: 100%;
   }
+
+  div.post {
+    word-break: break-all;
+  }
