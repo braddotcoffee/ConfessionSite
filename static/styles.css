@@ -223,6 +223,7 @@ masonry-brick {
   margin-bottom: 1%;
   margin-left: 0 !important;
   margin-right: 0 !important;
+  word-break: break-all;
 
 }
 
