@@ -40,7 +40,7 @@ nav.navbar {
 .divider {
   content: "";
   background: rgba(64,61,61, 0.3);
-  width: 97%;
+  width: 95%;
   height: 1px;
   margin: 0 auto;
 }

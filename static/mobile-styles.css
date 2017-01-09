@@ -1,0 +1,500 @@
+/* ----------- iPhone 4 and 4S ----------- */
+
+/* Portrait and Landscape */
+@media only screen 
+and (min-device-width: 320px) 
+and (max-device-width: 480px)
+and (-webkit-min-device-pixel-ratio: 2) {
+
+  h1 {
+    margin-bottom: 10%;
+  }
+
+  ul.postsList {
+    width: 100%;
+  }
+  div.post {
+    margin-bottom: 10%;
+  }
+  #body {
+    margin-top: 20%;
+  }
+
+  #body {
+    margin-right: 2%;
+    margin-left: 2%;
+  }
+
+  div.createPost {
+    margin: 0 auto;
+    text-align: center;
+  }
+
+  #postBox {
+    width: 100%;
+    margin: 0 auto;
+  }
+
+  #charNum {
+    text-align: center;
+    margin-top: 2%;
+    left: 45%;
+    color: rgb(64,64,61);
+    background: rgb(255,255,255);
+  }
+  #submitPost {
+    width: 100%;
+    text-align: center;
+    margin: 5% auto;
+    background: rgb(64,64,61);
+    color: rgb(255,255,255);
+  }
+
+  .grid-sizer {
+    width: 100%;
+  }
+
+  masonry-brick {
+    width: 100%;
+  } 
+}
+
+/* ----------- iPhone 5 and 5S ----------- */
+
+/* Portrait and Landscape */
+@media only screen 
+and (min-device-width: 320px) 
+and (max-device-width: 568px)
+and (-webkit-min-device-pixel-ratio: 2) {
+
+  h1 {
+    margin-bottom: 10%;
+  }
+
+  ul.postsList {
+    width: 100%;
+  }
+  div.post {
+    margin-bottom: 10%;
+  }
+  #body {
+    margin-top: 20%;
+  }
+
+  #body {
+    margin-right: 2%;
+    margin-left: 2%;
+  }
+
+  div.createPost {
+    margin: 0 auto;
+    text-align: center;
+  }
+
+  #postBox {
+    width: 100%;
+    margin: 0 auto;
+  }
+
+  #charNum {
+    text-align: center;
+    margin-top: 2%;
+    left: 45%;
+    color: rgb(64,64,61);
+    background: rgb(255,255,255);
+  }
+  #submitPost {
+    width: 100%;
+    text-align: center;
+    margin: 5% auto;
+    background: rgb(64,64,61);
+    color: rgb(255,255,255);
+  }
+
+  .grid-sizer {
+    width: 100%;
+  }
+
+  masonry-brick {
+    width: 100%;
+  }
+}
+
+/* ----------- iPhone 6 ----------- */
+
+/* Portrait and Landscape */
+@media only screen 
+and (min-device-width: 375px) 
+and (max-device-width: 667px) 
+and (-webkit-min-device-pixel-ratio: 2) { 
+
+  h1 {
+    margin-bottom: 10%;
+  }
+
+  ul.postsList {
+    width: 100%;
+  }
+  div.post {
+    margin-bottom: 10%;
+  }
+  #body {
+    margin-top: 20%;
+  }
+
+  #body {
+    margin-right: 2%;
+    margin-left: 2%;
+  }
+
+  div.createPost {
+    margin: 0 auto;
+    text-align: center;
+  }
+
+  #postBox {
+    width: 100%;
+    margin: 0 auto;
+  }
+
+  #charNum {
+    text-align: center;
+    margin-top: 2%;
+    left: 45%;
+    color: rgb(64,64,61);
+    background: rgb(255,255,255);
+  }
+  #submitPost {
+    width: 100%;
+    text-align: center;
+    margin: 5% auto;
+    background: rgb(64,64,61);
+    color: rgb(255,255,255);
+  }
+
+  .grid-sizer {
+    width: 100%;
+  }
+
+  masonry-brick {
+    width: 100%;
+  }
+
+
+}
+
+/* ----------- iPhone 6+ ----------- */
+
+/* Portrait and Landscape */
+@media only screen 
+and (min-device-width: 414px) 
+and (max-device-width: 736px) 
+and (-webkit-min-device-pixel-ratio: 3) { 
+
+  h1 {
+    margin-bottom: 10%;
+  }
+
+  ul.postsList {
+    width: 100%;
+  }
+  div.post {
+    margin-bottom: 10%;
+  }
+  #body {
+    margin-top: 20%;
+  }
+
+  #body {
+    margin-right: 2%;
+    margin-left: 2%;
+  }
+
+  div.createPost {
+    margin: 0 auto;
+    text-align: center;
+  }
+
+  #postBox {
+    width: 100%;
+    margin: 0 auto;
+  }
+
+  #charNum {
+    text-align: center;
+    margin-top: 2%;
+    left: 45%;
+    color: rgb(64,64,61);
+    background: rgb(255,255,255);
+  }
+  #submitPost {
+    width: 100%;
+    text-align: center;
+    margin: 5% auto;
+    background: rgb(64,64,61);
+    color: rgb(255,255,255);
+  }
+
+  .grid-sizer {
+    width: 100%;
+  }
+
+  masonry-brick {
+    width: 100%;
+  }
+
+
+}
+
+/* ----------- Galaxy S3 ----------- */
+
+/* Portrait and Landscape */
+@media screen 
+and (device-width: 320px) 
+and (device-height: 640px) 
+and (-webkit-device-pixel-ratio: 2) {
+
+  h1 {
+    margin-bottom: 10%;
+  }
+
+  ul.postsList {
+    width: 100%;
+  }
+  div.post {
+    margin-bottom: 10%;
+  }
+  #body {
+    margin-top: 20%;
+  }
+
+  #body {
+    margin-right: 2%;
+    margin-left: 2%;
+  }
+
+  div.createPost {
+    margin: 0 auto;
+    text-align: center;
+  }
+
+  #postBox {
+    width: 100%;
+    margin: 0 auto;
+  }
+
+  #charNum {
+    text-align: center;
+    margin-top: 2%;
+    left: 45%;
+    color: rgb(64,64,61);
+    background: rgb(255,255,255);
+  }
+  #submitPost {
+    width: 100%;
+    text-align: center;
+    margin: 5% auto;
+    background: rgb(64,64,61);
+    color: rgb(255,255,255);
+  }
+
+  .grid-sizer {
+    width: 100%;
+  }
+
+  masonry-brick {
+    width: 100%;
+  }
+
+
+}
+
+/* ----------- Galaxy S4 ----------- */
+
+/* Portrait and Landscape */
+@media screen 
+and (device-width: 320px) 
+and (device-height: 640px) 
+and (-webkit-device-pixel-ratio: 3) {
+
+  h1 {
+    margin-bottom: 10%;
+  }
+
+  ul.postsList {
+    width: 100%;
+  }
+  div.post {
+    margin-bottom: 10%;
+  }
+  #body {
+    margin-top: 20%;
+  }
+
+  #body {
+    margin-right: 2%;
+    margin-left: 2%;
+  }
+
+  div.createPost {
+    margin: 0 auto;
+    text-align: center;
+  }
+
+  #postBox {
+    width: 100%;
+    margin: 0 auto;
+  }
+
+  #charNum {
+    text-align: center;
+    margin-top: 2%;
+    left: 45%;
+    color: rgb(64,64,61);
+    background: rgb(255,255,255);
+  }
+  #submitPost {
+    width: 100%;
+    text-align: center;
+    margin: 5% auto;
+    background: rgb(64,64,61);
+    color: rgb(255,255,255);
+  }
+
+  .grid-sizer {
+    width: 100%;
+  }
+
+  masonry-brick {
+    width: 100%;
+  }
+
+
+}
+
+/* ----------- Galaxy S5 ----------- */
+
+/* Portrait and Landscape */
+@media screen 
+and (device-width: 360px) 
+and (device-height: 640px) 
+and (-webkit-device-pixel-ratio: 3) {
+
+  h1 {
+    margin-bottom: 10%;
+  }
+
+  ul.postsList {
+    width: 100%;
+  }
+  div.post {
+    margin-bottom: 10%;
+  }
+  #body {
+    margin-top: 20%;
+  }
+
+  #body {
+    margin-right: 2%;
+    margin-left: 2%;
+  }
+
+  div.createPost {
+    margin: 0 auto;
+    text-align: center;
+  }
+
+  #postBox {
+    width: 100%;
+    margin: 0 auto;
+  }
+
+  #charNum {
+    text-align: center;
+    margin-top: 2%;
+    left: 45%;
+    color: rgb(64,64,61);
+    background: rgb(255,255,255);
+  }
+  #submitPost {
+    width: 100%;
+    text-align: center;
+    margin: 5% auto;
+    background: rgb(64,64,61);
+    color: rgb(255,255,255);
+  }
+
+  .grid-sizer {
+    width: 100%;
+  }
+
+  masonry-brick {
+    width: 100%;
+  }
+
+
+}
+
+/* ----------- HTC One ----------- */
+
+/* Portrait and Landscape */
+@media screen 
+and (device-width: 360px) 
+and (device-height: 640px) 
+and (-webkit-device-pixel-ratio: 3) {
+
+  h1 {
+    margin-bottom: 10%;
+  }
+
+  ul.postsList {
+    width: 100%;
+  }
+  div.post {
+    margin-bottom: 10%;
+  }
+  #body {
+    margin-top: 20%;
+  }
+
+  #body {
+    margin-right: 2%;
+    margin-left: 2%;
+  }
+
+  div.createPost {
+    margin: 0 auto;
+    text-align: center;
+  }
+
+  #postBox {
+    width: 100%;
+    margin: 0 auto;
+  }
+
+  #charNum {
+    text-align: center;
+    margin-top: 2%;
+    left: 45%;
+    color: rgb(64,64,61);
+    background: rgb(255,255,255);
+  }
+  #submitPost {
+    width: 100%;
+    text-align: center;
+    margin: 5% auto;
+    background: rgb(64,64,61);
+    color: rgb(255,255,255);
+  }
+
+  .grid-sizer {
+    width: 100%;
+  }
+
+  masonry-brick {
+    width: 100%;
+  }
+
+}
+
+
