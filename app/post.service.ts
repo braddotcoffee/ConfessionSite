@@ -2,7 +2,6 @@ import { Injectable     }  from  '@angular/core';
 import { Headers, Http  }  from  '@angular/http';
 import { RequestOptions }  from  '@angular/http';
 
-import { POSTS          }  from  './mock-posts';
 import { Post           }  from  './post';
 
 import  'rxjs/add/operator/toPromise';

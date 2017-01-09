@@ -61,11 +61,23 @@ app.post("/myPosts", function(req, res, next){
   db.myPostsDB(uid, res);
 });
 
+app.post("/likePost", function(req, res, next){
+  console.log("HERE")
+  var pid = req.body.pid;
+  console.log(pid);
+  db.likePostDB(pid, res);
+})
+
+app.post("/unlikePost", function(req, res, next){
+  console.log("THERE")
+  var pid = req.body.pid;
+  console.log(pid);
+  db.unlikePostDB(pid, res);
+})
+
 app.get("*", function(req, res){
   res.sendFile(path.join(__dirname, '/static', '/index.html'));
 });
-
-
 
 app.listen(port, function(){
   console.log("App is listening on port " + port);

@@ -1,4 +1,4 @@
-// /*global jasmine, __karma__, window*/
+/l with vimux is to make interacting with tmux from vim effortless. By default when you call VimuxRunCommand vimux will create a 20% tall horizontal pane under your current tmux pane and execute a command in it without losing focus of vim. Once that pane exists whenever you call VimuxRunCommand again the command will be executed in that pane. As I was using vimux myself I wanted to rerun commands over and over. An example of this was running the current file through rspec. Rather than typing that over and over I wrote VimuxRunLastCommand that will execute the last command you called with VimuxRunCommand./ /*global jasmine, __karma__, window*/
 Error.stackTraceLimit = 0; // "No stacktrace"" is usually best for app testing.
 
 // Uncomment to get full stacktrace output. Sometimes helpful, usually not.

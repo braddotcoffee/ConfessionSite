@@ -30,6 +30,7 @@ nav.navbar {
   border: none;
 }
 .panel-footer{
+  text-align: center;
   color: rgb(64,61,61);
   background: rgb(255,255,255);
   border-radius: 0 0 10px 10px;
@@ -243,4 +244,7 @@ clear: both;
 
   div.post {
     overflow-wrap: break-word;
+  }
+  .Like, .Liked {
+    border: none;
   }

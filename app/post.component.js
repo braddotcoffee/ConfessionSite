@@ -10,10 +10,19 @@ var __metadata = (this && this.__metadata) || function (k, v) {
 };
 var core_1 = require('@angular/core');
 var post_1 = require('./post');
+var like_service_1 = require('./like.service');
 var PostComponent = (function () {
-    function PostComponent() {
+    function PostComponent(likeService) {
+        this.likeService = likeService;
     }
     PostComponent.prototype.ngOnInit = function () {
+        var likedPosts = JSON.parse(localStorage.getItem("likedPosts"));
+        if (likedPosts === null)
+            likedPosts = [];
+        if (likedPosts.indexOf(this.post.pid) === -1)
+            this.liked = "Like";
+        else
+            this.liked = "Liked";
         this.calculateDate();
     };
     PostComponent.prototype.calculateDate = function () {
@@ -50,6 +59,25 @@ var PostComponent = (function () {
             minuteString = this.minutesLeft.toString();
         this.rem = hourString + ":" + minuteString + " remaining";
     };
+    PostComponent.prototype.handleLike = function () {
+        var pid = this.post.pid;
+        var likedPosts = JSON.parse(localStorage.getItem("likedPosts"));
+        if (likedPosts === null)
+            likedPosts = [];
+        var index = likedPosts.indexOf(pid);
+        if (index === -1) {
+            this.liked = "Liked";
+            likedPosts.push(pid);
+            localStorage.setItem("likedPosts", JSON.stringify(likedPosts));
+            this.likeService.likePost(pid);
+        }
+        else {
+            this.liked = "Like";
+            likedPosts.splice(index, 1);
+            localStorage.setItem("likedPosts", JSON.stringify(likedPosts));
+            this.likeService.unlikePost(pid);
+        }
+    };
     __decorate([
         core_1.Input(), 
         __metadata('design:type', post_1.Post)
@@ -57,9 +85,10 @@ var PostComponent = (function () {
     PostComponent = __decorate([
         core_1.Component({
             selector: 'post',
-            template: "\n    <div class=\"panel post\">\n      <div class=\"panel-heading\">\n        {{this.hour}}:{{this.minute}} {{this.mer}}\n        <span class=\"time-left\"> {{rem}} </span>\n      </div>\n      <div class=\"panel-body\">\n        {{post.body}}\n      </div>\n      <div class=\"divider\"></div>\n      <div class=\"panel-footer\">\n        Filler text for now\n      </div>\n    </div>\n  "
+            providers: [like_service_1.LikeService],
+            template: "\n    <div class=\"panel post\">\n      <div class=\"panel-heading\">\n        {{this.hour}}:{{this.minute}} {{this.mer}}\n        <span class=\"time-left\"> {{rem}} </span>\n      </div>\n      <div class=\"panel-body\">\n        {{post.body}}\n      </div>\n      <div class=\"divider\"></div>\n      <div class=\"panel-footer\">\n        <button class=\"{{this.liked}}\" (click)=\"handleLike()\">\n          {{this.liked}}\n        </button>\n      </div>\n    </div>\n  "
         }), 
-        __metadata('design:paramtypes', [])
+        __metadata('design:paramtypes', [like_service_1.LikeService])
     ], PostComponent);
     return PostComponent;
 }());

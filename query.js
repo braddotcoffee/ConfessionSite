@@ -28,11 +28,21 @@ exports.insertDB = function(uid, pid, body) {
   });
 }
 
-exports.rankDB = function(pid, body){
+exports.likePostDB = function(pid, res){
   client.query("UPDATE posts SET rank=rank+1 WHERE pid=$1", [pid], function(err, result){
     if(err)
       console.log(err);
     console.log("Rank updated");
+    res.sendStatus(200);
+  })
+};
+
+exports.unlikePostDB = function(pid, res){
+  client.query("UPDATE posts SET rank=rank-1 WHERE pid=$1", [pid], function(err, result){
+    if(err)
+      console.log(err);
+    console.log("Rank updated");
+    res.sendStatus(200);
   })
 };
 

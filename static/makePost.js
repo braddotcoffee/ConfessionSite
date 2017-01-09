@@ -41,5 +41,11 @@ function genID() {
     return userID;
 }
 
+function handleLike(button){
+  button.text("Liked"); 
+  var req = new XMLHttpRequest();
+
+}
+
 var submitButton = document.getElementById("submitPost");
 submitButton.addEventListener("click", makePost);

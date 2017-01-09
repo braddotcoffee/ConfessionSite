@@ -1,7 +1,7 @@
 0 info it worked if it ends with ok
 1 verbose cli [ '/usr/bin/node', '/usr/bin/npm', 'start' ]
 2 info using npm@4.0.5
-3 info using node@v7.3.0
+3 info using node@v7.4.0
 4 verbose run-script [ 'prestart', 'start', 'poststart' ]
 5 info lifecycle confessions@1.0.0~prestart: confessions@1.0.0
 6 silly lifecycle confessions@1.0.0~prestart: no script for prestart, continuing
@@ -26,7 +26,7 @@
 16 verbose cwd /home/bwbonanno/Documents/Websites/Confessions/SourceCode
 17 error Linux 4.8.13-1-ARCH
 18 error argv "/usr/bin/node" "/usr/bin/npm" "start"
-19 error node v7.3.0
+19 error node v7.4.0
 20 error npm  v4.0.5
 21 error code ELIFECYCLE
 22 error confessions@1.0.0 start: `tsc && node server.js`
