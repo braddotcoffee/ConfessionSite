@@ -17,8 +17,8 @@ import { LikeService }  from  './like.service';
       </div>
       <div class="divider"></div>
       <div class="panel-footer">
-        <button class="{{this.liked}}" (click)="handleLike()">
-          {{this.liked}}
+        <button class="like" (click)="handleLike()">
+          <i class="fa {{this.liked}}" aria-hidden="true"></i>
         </button>
       </div>
     </div>
@@ -46,9 +46,9 @@ export class PostComponent implements OnInit{
     if (likedPosts === null)
       likedPosts = []
     if(likedPosts.indexOf(this.post.pid) === -1)
-      this.liked = "Like";
+      this.liked = "fa-heart-o";
     else
-      this.liked = "Liked";
+      this.liked = "fa-heart";
 
     this.calculateDate();
   }
@@ -103,7 +103,7 @@ export class PostComponent implements OnInit{
 
     var index = likedPosts.indexOf(pid);
     if(index === -1){
-      this.liked = "Liked";
+      this.liked = "fa-heart";
 
       likedPosts.push(pid);
       localStorage.setItem("likedPosts", JSON.stringify(likedPosts));
@@ -111,7 +111,7 @@ export class PostComponent implements OnInit{
       this.likeService.likePost(pid);
     }  
     else {
-      this.liked = "Like";
+      this.liked = "fa-heart-o";
 
       likedPosts.splice(index,1);
       localStorage.setItem("likedPosts", JSON.stringify(likedPosts));

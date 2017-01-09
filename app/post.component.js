@@ -20,9 +20,9 @@ var PostComponent = (function () {
         if (likedPosts === null)
             likedPosts = [];
         if (likedPosts.indexOf(this.post.pid) === -1)
-            this.liked = "Like";
+            this.liked = "fa-heart-o";
         else
-            this.liked = "Liked";
+            this.liked = "fa-heart";
         this.calculateDate();
     };
     PostComponent.prototype.calculateDate = function () {
@@ -66,13 +66,13 @@ var PostComponent = (function () {
             likedPosts = [];
         var index = likedPosts.indexOf(pid);
         if (index === -1) {
-            this.liked = "Liked";
+            this.liked = "fa-heart";
             likedPosts.push(pid);
             localStorage.setItem("likedPosts", JSON.stringify(likedPosts));
             this.likeService.likePost(pid);
         }
         else {
-            this.liked = "Like";
+            this.liked = "fa-heart-o";
             likedPosts.splice(index, 1);
             localStorage.setItem("likedPosts", JSON.stringify(likedPosts));
             this.likeService.unlikePost(pid);
@@ -86,7 +86,7 @@ var PostComponent = (function () {
         core_1.Component({
             selector: 'post',
             providers: [like_service_1.LikeService],
-            template: "\n    <div class=\"panel post\">\n      <div class=\"panel-heading\">\n        {{this.hour}}:{{this.minute}} {{this.mer}}\n        <span class=\"time-left\"> {{rem}} </span>\n      </div>\n      <div class=\"panel-body\">\n        {{post.body}}\n      </div>\n      <div class=\"divider\"></div>\n      <div class=\"panel-footer\">\n        <button class=\"{{this.liked}}\" (click)=\"handleLike()\">\n          {{this.liked}}\n        </button>\n      </div>\n    </div>\n  "
+            template: "\n    <div class=\"panel post\">\n      <div class=\"panel-heading\">\n        {{this.hour}}:{{this.minute}} {{this.mer}}\n        <span class=\"time-left\"> {{rem}} </span>\n      </div>\n      <div class=\"panel-body\">\n        {{post.body}}\n      </div>\n      <div class=\"divider\"></div>\n      <div class=\"panel-footer\">\n        <button class=\"like\" (click)=\"handleLike()\">\n          <i class=\"fa {{this.liked}}\" aria-hidden=\"true\"></i>\n        </button>\n      </div>\n    </div>\n  "
         }), 
         __metadata('design:paramtypes', [like_service_1.LikeService])
     ], PostComponent);

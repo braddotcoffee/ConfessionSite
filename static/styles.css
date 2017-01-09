@@ -245,6 +245,6 @@ clear: both;
   div.post {
     overflow-wrap: break-word;
   }
-  .Like, .Liked {
+  .like {
     border: none;
   }

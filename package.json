@@ -26,6 +26,7 @@
     "core-js": "^2.4.1",
     "cores": "^0.8.5",
     "elastic.js": "^1.2.0",
+    "font-awesome": "^4.7.0",
     "masonry": "0.0.2",
     "pg": "^6.1.2",
     "reflect-metadata": "^0.1.8",

@@ -62,16 +62,14 @@ app.post("/myPosts", function(req, res, next){
 });
 
 app.post("/likePost", function(req, res, next){
-  console.log("HERE")
+  console.log("LIKE")
   var pid = req.body.pid;
-  console.log(pid);
   db.likePostDB(pid, res);
 })
 
 app.post("/unlikePost", function(req, res, next){
-  console.log("THERE")
+  console.log("UNLIKE")
   var pid = req.body.pid;
-  console.log(pid);
   db.unlikePostDB(pid, res);
 })
 
