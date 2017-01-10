@@ -245,6 +245,27 @@ clear: both;
   div.post {
     overflow-wrap: break-word;
   }
+
+  ul.postsList div.post{
+    transform: scale(0);
+
+    animation-name: grow;
+    animation-iteration-count: 1;
+    animation-timing-function: ease-in;
+    animation-duration: 0.3s;
+    animation-fill-mode: forwards;
+    animation-delay: 0s;
+  }
+
+  @keyframes grow {
+    0% {
+      transform: scale(0);
+    }
+    100% {
+      transform: scale(1);
+    }
+  }
+
   .like, .trash, .inappropriate {
     border: none;
   }
