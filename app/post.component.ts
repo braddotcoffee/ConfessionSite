@@ -3,6 +3,8 @@ import { Component , Input, OnInit } from '@angular/core';
 import { Post        }  from  './post';
 import { LikeService }  from  './like.service';
 
+declare var bootbox: any;
+
 @Component({
   selector: 'post',
   providers: [ LikeService ],
@@ -107,7 +109,7 @@ export class PostComponent implements OnInit{
 
       likedPosts.push(pid);
       localStorage.setItem("likedPosts", JSON.stringify(likedPosts));
-      
+
       this.likeService.likePost(pid);
     }  
     else {
@@ -118,5 +120,12 @@ export class PostComponent implements OnInit{
 
       this.likeService.unlikePost(pid);
     }
+  }
+
+  deletePost(): void {
+    bootbox.confirm("Are you sure you want to delete?", function(result: boolean){
+      if(result === true)
+        this.likeService.deletePost(this.post.pid);
+    }); 
   }
 }

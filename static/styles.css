@@ -245,6 +245,15 @@ clear: both;
   div.post {
     overflow-wrap: break-word;
   }
-  .like {
+  .like, .trash {
     border: none;
+  }
+
+  .btn-primary  {
+    background: rgb(64,61,61) !important;
+    border-color: rgb(64,61,61) !important;
+  }
+
+  .bootbox, .modal-open {
+    padding: 0 !important;
   }

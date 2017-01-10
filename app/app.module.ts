@@ -1,17 +1,18 @@
-import { NgModule        }  from  '@angular/core';
-import { BrowserModule   }  from  '@angular/platform-browser';
-import { FormsModule     }  from  '@angular/forms';
-import { RouterModule    }  from  '@angular/router';
-import { HttpModule      }  from  '@angular/http';
+import { NgModule              }  from  '@angular/core';
+import { BrowserModule         }  from  '@angular/platform-browser';
+import { FormsModule           }  from  '@angular/forms';
+import { RouterModule          }  from  '@angular/router';
+import { HttpModule            }  from  '@angular/http';
 
-import { MasonryModule   }  from  'angular2-masonry';
+import { MasonryModule         }  from  'angular2-masonry';
 
-import { AppComponent    }  from  './app.component';
-import { TopComponent    }  from  './top.component';
-import { NewComponent     }  from  './new.component';
-import { PostComponent    }  from  './post.component';
-import { BrowseComponent  }  from  './browse.component';
-import { MyPostsComponent }  from  './myposts.component';
+import { AppComponent          }  from  './app.component';
+import { TopComponent          }  from  './top.component';
+import { NewComponent          }  from  './new.component';
+import { PostComponent         }  from  './post.component';
+import { PersonalPostComponent }  from  './personalPost.component';
+import { BrowseComponent       }  from  './browse.component';
+import { MyPostsComponent      }  from  './myposts.component';
 
 @NgModule({
   imports: [
@@ -58,6 +59,7 @@ import { MyPostsComponent }  from  './myposts.component';
     NewComponent,
     TopComponent,
     PostComponent,
+    PersonalPostComponent,
     BrowseComponent,
     MyPostsComponent,
     AppComponent

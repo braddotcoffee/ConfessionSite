@@ -1,9 +1,9 @@
-import { Component     }  from  '@angular/core';
-import { OnInit        }  from  '@angular/core';
+import { Component       }  from  '@angular/core';
+import { OnInit          }  from  '@angular/core';
 
-import { Post          }  from  './post';
-import { PostService   }  from  './post.service';
-import { PostComponent }  from  './post.component';
+import { Post            }  from  './post';
+import { PostService     }  from  './post.service';
+import { PersonalPostComponent }  from  './personalPost.component';
 
 @Component({
   selector:'myposts',
@@ -11,7 +11,7 @@ import { PostComponent }  from  './post.component';
   template: `
   <ul class="postsList">
     <li *ngFor='let post of posts'>
-      <post [post]="post"></post>
+      <personalpost [post]="post"></personalpost>
     </li>
   </ul>
   `

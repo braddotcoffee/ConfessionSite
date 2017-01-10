@@ -46,6 +46,15 @@ exports.unlikePostDB = function(pid, res){
   })
 };
 
+exports.deletePostDB = function(pid, res){
+  client.query("DELETE FROM posts WHERE pid=$1", [pid], function(err, result){
+    if(err)
+      console.log(err);
+    console.log("DELETED");
+    res.sendStatus(200);
+  })
+}
+
 exports.disconnectDB = function(){
   client.end(function(){
     console.log("Disconnected!");

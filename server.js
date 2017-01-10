@@ -73,6 +73,12 @@ app.post("/unlikePost", function(req, res, next){
   db.unlikePostDB(pid, res);
 })
 
+app.post("/deletePost", function(req, res, next){
+  console.log("DELETING");
+  var pid = req.body.pid;
+  db.deletePostDB(pid, res);
+})
+
 app.get("*", function(req, res){
   res.sendFile(path.join(__dirname, '/static', '/index.html'));
 });

@@ -17,6 +17,7 @@ var LikeService = (function () {
         this.http = http;
         this.likePostURL = "/likePost";
         this.unlikePostURL = "/unlikePost";
+        this.deletePostURL = "/deletePost";
     }
     LikeService.prototype.likePost = function (pid) {
         var _this = this;
@@ -31,6 +32,13 @@ var LikeService = (function () {
         var headers = new http_1.Headers({ "Content-Type": "application/json" });
         var options = new http_2.RequestOptions({ headers: headers });
         this.http.post(this.unlikePostURL, { "pid": pid }, options).subscribe(function (val) { return _this.res = val; });
+    };
+    LikeService.prototype.deletePost = function (pid) {
+        var _this = this;
+        console.log("Deleting Post");
+        var headers = new http_1.Headers({ "Content-Type": "application/json" });
+        var options = new http_2.RequestOptions({ headers: headers });
+        this.http.post(this.deletePostURL, { "pid": pid }, options).subscribe(function (val) { return _this.res = val; });
     };
     LikeService = __decorate([
         core_1.Injectable(), 

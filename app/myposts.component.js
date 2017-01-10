@@ -27,7 +27,7 @@ var MyPostsComponent = (function () {
         core_1.Component({
             selector: 'myposts',
             providers: [post_service_1.PostService],
-            template: "\n  <ul class=\"postsList\">\n    <li *ngFor='let post of posts'>\n      <post [post]=\"post\"></post>\n    </li>\n  </ul>\n  "
+            template: "\n  <ul class=\"postsList\">\n    <li *ngFor='let post of posts'>\n      <personalpost [post]=\"post\"></personalpost>\n    </li>\n  </ul>\n  "
         }), 
         __metadata('design:paramtypes', [post_service_1.PostService])
     ], MyPostsComponent);

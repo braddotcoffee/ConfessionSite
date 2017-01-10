@@ -78,6 +78,12 @@ var PostComponent = (function () {
             this.likeService.unlikePost(pid);
         }
     };
+    PostComponent.prototype.deletePost = function () {
+        bootbox.confirm("Are you sure you want to delete?", function (result) {
+            if (result === true)
+                this.likeService.deletePost(this.post.pid);
+        });
+    };
     __decorate([
         core_1.Input(), 
         __metadata('design:type', post_1.Post)

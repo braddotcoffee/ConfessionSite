@@ -18,6 +18,7 @@ var app_component_1 = require('./app.component');
 var top_component_1 = require('./top.component');
 var new_component_1 = require('./new.component');
 var post_component_1 = require('./post.component');
+var personalPost_component_1 = require('./personalPost.component');
 var browse_component_1 = require('./browse.component');
 var myposts_component_1 = require('./myposts.component');
 var AppModule = (function () {
@@ -63,6 +64,7 @@ var AppModule = (function () {
                 new_component_1.NewComponent,
                 top_component_1.TopComponent,
                 post_component_1.PostComponent,
+                personalPost_component_1.PersonalPostComponent,
                 browse_component_1.BrowseComponent,
                 myposts_component_1.MyPostsComponent,
                 app_component_1.AppComponent

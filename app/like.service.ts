@@ -9,6 +9,7 @@ import "rxjs/add/operator/map";
 export class LikeService {
   likePostURL   = "/likePost";
   unlikePostURL = "/unlikePost";
+  deletePostURL = "/deletePost";
   res: any;
 
   constructor(private http: Http){  }
@@ -27,6 +28,15 @@ export class LikeService {
     let options = new RequestOptions({headers: headers});
 
     this.http.post(this.unlikePostURL, {"pid": pid}, options).subscribe(val => this.res = val);
+  }
+
+  deletePost(pid: string): void {
+    console.log("Deleting Post");
+
+    let headers = new Headers({"Content-Type": "application/json"});
+    let options = new RequestOptions({headers: headers});
+
+    this.http.post(this.deletePostURL, {"pid": pid}, options).subscribe(val => this.res = val);
   }
 
 }
