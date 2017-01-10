@@ -15,7 +15,6 @@ export class LikeService {
   constructor(private http: Http){  }
 
   likePost(pid: string): void {
-    console.log("Liking Post")
     let headers = new Headers({"Content-Type": "application/json"});
     let options = new RequestOptions({headers: headers});
 
@@ -23,7 +22,6 @@ export class LikeService {
   }
 
   unlikePost(pid: string): void {
-    console.log("Unliking Post")
     let headers = new Headers({"Content-Type": "application/json"});
     let options = new RequestOptions({headers: headers});
 
@@ -31,8 +29,6 @@ export class LikeService {
   }
 
   deletePost(pid: string): void {
-    console.log("Deleting Post");
-
     let headers = new Headers({"Content-Type": "application/json"});
     let options = new RequestOptions({headers: headers});
 

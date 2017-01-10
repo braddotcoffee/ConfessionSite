@@ -51,7 +51,6 @@ var PostComponent = (function () {
         minutes = 1440 - minutes;
         this.hoursLeft = Math.floor(minutes / 60);
         this.minutesLeft = minutes - (this.hoursLeft * 60);
-        console.log(this.minutesLeft);
         var hourString = this.hoursLeft.toString();
         var minuteString = '';
         if (this.minutesLeft < 10)
@@ -88,7 +87,6 @@ var PostComponent = (function () {
                 if (hidden === null)
                     hidden = [];
                 hidden.push(_this.post.pid);
-                console.log(hidden);
                 localStorage.setItem("hidden", JSON.stringify(hidden));
                 _this.post.pid = null;
             }

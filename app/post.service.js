@@ -57,7 +57,6 @@ var PostService = (function () {
         var hidden = JSON.parse(localStorage.getItem("hidden"));
         if (hidden === null)
             hidden = [];
-        console.log(hidden);
         for (var i = 0; i < posts.length; i++) {
             var index = hidden.indexOf(posts[i].pid);
             if (index != -1)

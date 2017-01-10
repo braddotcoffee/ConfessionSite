@@ -89,7 +89,6 @@ export class PostComponent implements OnInit{
     minutes = 1440 - minutes;
     this.hoursLeft = Math.floor(minutes/60);
     this.minutesLeft = minutes - (this.hoursLeft * 60);
-    console.log(this.minutesLeft);
 
     var hourString = this.hoursLeft.toString();
     var minuteString = '';
@@ -137,7 +136,6 @@ export class PostComponent implements OnInit{
           hidden = [];
 
         hidden.push(this.post.pid);
-        console.log(hidden);
         localStorage.setItem("hidden", JSON.stringify(hidden));
 
         this.post.pid = null;

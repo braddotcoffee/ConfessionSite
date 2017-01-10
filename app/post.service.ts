@@ -56,8 +56,6 @@ export class PostService {
     if (hidden === null)
       hidden = [];
 
-    console.log(hidden);
-
     for(var i:number = 0; i < posts.length; i++){
       var index = hidden.indexOf(posts[i].pid);
       if (index != -1)

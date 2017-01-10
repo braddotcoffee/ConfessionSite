@@ -21,21 +21,18 @@ var LikeService = (function () {
     }
     LikeService.prototype.likePost = function (pid) {
         var _this = this;
-        console.log("Liking Post");
         var headers = new http_1.Headers({ "Content-Type": "application/json" });
         var options = new http_2.RequestOptions({ headers: headers });
         this.http.post(this.likePostURL, { "pid": pid }, options).subscribe(function (val) { return _this.res = val; });
     };
     LikeService.prototype.unlikePost = function (pid) {
         var _this = this;
-        console.log("Unliking Post");
         var headers = new http_1.Headers({ "Content-Type": "application/json" });
         var options = new http_2.RequestOptions({ headers: headers });
         this.http.post(this.unlikePostURL, { "pid": pid }, options).subscribe(function (val) { return _this.res = val; });
     };
     LikeService.prototype.deletePost = function (pid) {
         var _this = this;
-        console.log("Deleting Post");
         var headers = new http_1.Headers({ "Content-Type": "application/json" });
         var options = new http_2.RequestOptions({ headers: headers });
         this.http.post(this.deletePostURL, { "pid": pid }, options).subscribe(function (val) { return _this.res = val; });
