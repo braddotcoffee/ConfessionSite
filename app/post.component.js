@@ -16,6 +16,7 @@ var PostComponent = (function () {
         this.likeService = likeService;
     }
     PostComponent.prototype.ngOnInit = function () {
+        this.hidden = "";
         var likedPosts = JSON.parse(localStorage.getItem("likedPosts"));
         if (likedPosts === null)
             likedPosts = [];
@@ -78,10 +79,19 @@ var PostComponent = (function () {
             this.likeService.unlikePost(pid);
         }
     };
-    PostComponent.prototype.deletePost = function () {
-        bootbox.confirm("Are you sure you want to delete?", function (result) {
-            if (result === true)
-                this.likeService.deletePost(this.post.pid);
+    PostComponent.prototype.inappropriate = function () {
+        var _this = this;
+        bootbox.confirm("Are you sure you want to mark this post as inappropriate?", function (result) {
+            if (result === true) {
+                _this.likeService.unlikePost(_this.post.pid);
+                var hidden = JSON.parse(localStorage.getItem("hidden"));
+                if (hidden === null)
+                    hidden = [];
+                hidden.push(_this.post.pid);
+                console.log(hidden);
+                localStorage.setItem("hidden", JSON.stringify(hidden));
+                _this.post.pid = null;
+            }
         });
     };
     __decorate([
@@ -92,7 +102,7 @@ var PostComponent = (function () {
         core_1.Component({
             selector: 'post',
             providers: [like_service_1.LikeService],
-            template: "\n    <div class=\"panel post\">\n      <div class=\"panel-heading\">\n        {{this.hour}}:{{this.minute}} {{this.mer}}\n        <span class=\"time-left\"> {{rem}} </span>\n      </div>\n      <div class=\"panel-body\">\n        {{post.body}}\n      </div>\n      <div class=\"divider\"></div>\n      <div class=\"panel-footer\">\n        <button class=\"like\" (click)=\"handleLike()\">\n          <i class=\"fa {{this.liked}}\" aria-hidden=\"true\"></i>\n        </button>\n      </div>\n    </div>\n  "
+            template: "\n    <div class=\"panel post {{this.hidden}}\">\n      <div class=\"panel-heading\">\n        {{this.hour}}:{{this.minute}} {{this.mer}}\n        <span class=\"time-left\"> {{rem}} </span>\n      </div>\n      <div class=\"panel-body\">\n        {{post.body}}\n      </div>\n      <div class=\"divider\"></div>\n      <div class=\"panel-footer\">\n        <button class=\"like\" (click)=\"handleLike()\">\n          <i class=\"fa {{this.liked}}\" aria-hidden=\"true\"></i>\n        </button>\n        <button class=\"inappropriate\" (click)=\"inappropriate()\">\n          <i class=\"fa fa-times\" aria-hidden=\"true\"></i>\n        </button>\n      </div>\n    </div>\n  "
         }), 
         __metadata('design:paramtypes', [like_service_1.LikeService])
     ], PostComponent);

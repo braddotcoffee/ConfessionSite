@@ -9,7 +9,7 @@ declare var bootbox: any;
   selector: 'post',
   providers: [ LikeService ],
   template: `
-    <div class="panel post">
+    <div class="panel post {{this.hidden}}">
       <div class="panel-heading">
         {{this.hour}}:{{this.minute}} {{this.mer}}
         <span class="time-left"> {{rem}} </span>
@@ -21,6 +21,9 @@ declare var bootbox: any;
       <div class="panel-footer">
         <button class="like" (click)="handleLike()">
           <i class="fa {{this.liked}}" aria-hidden="true"></i>
+        </button>
+        <button class="inappropriate" (click)="inappropriate()">
+          <i class="fa fa-times" aria-hidden="true"></i>
         </button>
       </div>
     </div>
@@ -39,10 +42,12 @@ export class PostComponent implements OnInit{
   hoursLeft: number;
   minutesLeft: number;
   liked: string;
+  hidden: string;
 
   constructor(private likeService: LikeService){  }
 
   ngOnInit(): void {
+    this.hidden = "";
     var likedPosts = JSON.parse(localStorage.getItem("likedPosts"));
 
     if (likedPosts === null)
@@ -122,10 +127,22 @@ export class PostComponent implements OnInit{
     }
   }
 
-  deletePost(): void {
-    bootbox.confirm("Are you sure you want to delete?", function(result: boolean){
-      if(result === true)
-        this.likeService.deletePost(this.post.pid);
+  inappropriate(): void {
+    bootbox.confirm("Are you sure you want to mark this post as inappropriate?", (result: boolean)=>{
+      if(result === true){
+        this.likeService.unlikePost(this.post.pid);
+        var hidden = JSON.parse(localStorage.getItem("hidden"));
+
+        if (hidden === null)
+          hidden = [];
+
+        hidden.push(this.post.pid);
+        console.log(hidden);
+        localStorage.setItem("hidden", JSON.stringify(hidden));
+
+        this.post.pid = null;
+      }
+
     }); 
   }
 }

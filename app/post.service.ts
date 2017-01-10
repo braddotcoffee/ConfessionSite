@@ -18,21 +18,21 @@ export class PostService {
   getBrowsePosts(): Promise<Post[]>{
     return this.http.get(this.browsePosts)
     .toPromise()
-    .then(response => response.json() as Post[])
+    .then(response => this.filterPosts(response.json() as Post[]))
     .catch(this.handleError);
   }
 
   getNewPosts(): Promise<Post[]>{
     return this.http.get(this.newPosts)
     .toPromise()
-    .then(response => response.json() as Post[])
+    .then(response => this.filterPosts(response.json() as Post[]))
     .catch(this.handleError);
   }
 
   getTopPosts(): Promise<Post[]>{
     return this.http.get(this.topPosts)
     .toPromise()
-    .then(response => response.json() as Post[])
+    .then(response => this.filterPosts(response.json() as Post[]))
     .catch(this.handleError);
   }
 
@@ -49,5 +49,21 @@ export class PostService {
   private handleError(error: any): Promise<any>{
     console.error("An error has occurred retrieving posts");
     return Promise.reject(error.message || error);
+  }
+
+  private filterPosts(posts: Post[]): Post[]{
+    var hidden = JSON.parse(localStorage.getItem("hidden"));
+    if (hidden === null)
+      hidden = [];
+
+    console.log(hidden);
+
+    for(var i:number = 0; i < posts.length; i++){
+      var index = hidden.indexOf(posts[i].pid);
+      if (index != -1)
+        posts[i].pid = null;
+    }
+    return posts;
+
   }
 }

@@ -14,9 +14,11 @@ import { Options        }  from  './masonry.options';
   template: `
   <masonry [options]="options">
     <div class="grid-sizer"></div>
-    <masonry-brick *ngFor="let post of posts">
-      <post class="brick" [post]="post"></post>
-    </masonry-brick>
+    <div *ngFor="let post of posts">
+      <masonry-brick *ngIf="post.pid">
+        <post class="brick" [post]="post"></post>
+      </masonry-brick>
+    </div>
   </masonry>
   `
 })
@@ -36,8 +38,6 @@ export class BrowseComponent implements OnInit {
 
   // Get Posts from PostService //
   getPosts(): void {
-    this.postService.getBrowsePosts().then(posts => {
-      this.posts = posts;
-    });  
+    this.postService.getBrowsePosts().then(posts => this.posts = posts);
   }
 }

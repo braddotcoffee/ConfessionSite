@@ -245,7 +245,7 @@ clear: both;
   div.post {
     overflow-wrap: break-word;
   }
-  .like, .trash {
+  .like, .trash, .inappropriate {
     border: none;
   }
 
@@ -256,4 +256,10 @@ clear: both;
 
   .bootbox, .modal-open {
     padding: 0 !important;
+  }
+
+  .hidden {
+    display: none;
+    width: 0;
+    height: 0;
   }

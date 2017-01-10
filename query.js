@@ -102,7 +102,7 @@ exports.myPostsDB = function(uid, res){
 }
 
 exports.expireDB = function(end){
-  client.query("DELETE FROM posts WHERE DATE_PART('day', NOW()::timestamp-time) >= 1", function(err, result){
+  client.query("DELETE FROM posts WHERE DATE_PART('day', NOW()::timestamp-time) >= 1 OR rank <= -3", function(err, result){
     console.log("ENDING");
     end();
   })

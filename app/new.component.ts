@@ -11,7 +11,7 @@ import { PostComponent }  from  './post.component';
   template: `
   <ul class="postsList">
     <li *ngFor='let post of posts'>
-      <post [post]="post"></post>
+      <post *ngIf="post.pid" [post]="post"></post>
     </li>
   </ul>
   `

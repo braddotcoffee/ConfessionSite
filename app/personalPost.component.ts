@@ -20,10 +20,10 @@ declare var bootbox: any;
       <div class="divider"></div>
       <div class="panel-footer">
         <button class="like" (click)="handleLike()">
-          <i class="fa {{this.liked}}" aria-hidden="true"></i>
+          <i class="fa {{this.liked}}" alt="Like" title="Like" aria-hidden="true"></i>
         </button>
         <button class="trash" (click)="deletePost()">
-          <i class="fa fa-trash" aria-hidden="true"></i>
+          <i class="fa fa-trash" alt="Delete" title="Delete" aria-hidden="true"></i>
         </button>
       </div>
     </div>

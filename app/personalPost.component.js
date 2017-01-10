@@ -94,7 +94,7 @@ var PersonalPostComponent = (function () {
         core_1.Component({
             selector: 'personalpost',
             providers: [like_service_1.LikeService],
-            template: "\n    <div class=\"panel post\">\n      <div class=\"panel-heading\">\n        {{this.hour}}:{{this.minute}} {{this.mer}}\n        <span class=\"time-left\"> {{rem}} </span>\n      </div>\n      <div class=\"panel-body\">\n        {{post.body}}\n      </div>\n      <div class=\"divider\"></div>\n      <div class=\"panel-footer\">\n        <button class=\"like\" (click)=\"handleLike()\">\n          <i class=\"fa {{this.liked}}\" aria-hidden=\"true\"></i>\n        </button>\n        <button class=\"trash\" (click)=\"deletePost()\">\n          <i class=\"fa fa-trash\" aria-hidden=\"true\"></i>\n        </button>\n      </div>\n    </div>\n  "
+            template: "\n    <div class=\"panel post\">\n      <div class=\"panel-heading\">\n        {{this.hour}}:{{this.minute}} {{this.mer}}\n        <span class=\"time-left\"> {{rem}} </span>\n      </div>\n      <div class=\"panel-body\">\n        {{post.body}}\n      </div>\n      <div class=\"divider\"></div>\n      <div class=\"panel-footer\">\n        <button class=\"like\" (click)=\"handleLike()\">\n          <i class=\"fa {{this.liked}}\" alt=\"Like\" title=\"Like\" aria-hidden=\"true\"></i>\n        </button>\n        <button class=\"trash\" (click)=\"deletePost()\">\n          <i class=\"fa fa-trash\" alt=\"Delete\" title=\"Delete\" aria-hidden=\"true\"></i>\n        </button>\n      </div>\n    </div>\n  "
         }), 
         __metadata('design:paramtypes', [like_service_1.LikeService])
     ], PersonalPostComponent);

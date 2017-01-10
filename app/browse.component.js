@@ -23,15 +23,13 @@ var BrowseComponent = (function () {
     // Get Posts from PostService //
     BrowseComponent.prototype.getPosts = function () {
         var _this = this;
-        this.postService.getBrowsePosts().then(function (posts) {
-            _this.posts = posts;
-        });
+        this.postService.getBrowsePosts().then(function (posts) { return _this.posts = posts; });
     };
     BrowseComponent = __decorate([
         core_1.Component({
             selector: 'browse',
             providers: [post_service_1.PostService],
-            template: "\n  <masonry [options]=\"options\">\n    <div class=\"grid-sizer\"></div>\n    <masonry-brick *ngFor=\"let post of posts\">\n      <post class=\"brick\" [post]=\"post\"></post>\n    </masonry-brick>\n  </masonry>\n  "
+            template: "\n  <masonry [options]=\"options\">\n    <div class=\"grid-sizer\"></div>\n    <div *ngFor=\"let post of posts\">\n      <masonry-brick *ngIf=\"post.pid\">\n        <post class=\"brick\" [post]=\"post\"></post>\n      </masonry-brick>\n    </div>\n  </masonry>\n  "
         }), 
         __metadata('design:paramtypes', [post_service_1.PostService])
     ], BrowseComponent);

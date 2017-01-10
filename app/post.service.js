@@ -21,21 +21,24 @@ var PostService = (function () {
         this.myPosts = "/myPosts";
     }
     PostService.prototype.getBrowsePosts = function () {
+        var _this = this;
         return this.http.get(this.browsePosts)
             .toPromise()
-            .then(function (response) { return response.json(); })
+            .then(function (response) { return _this.filterPosts(response.json()); })
             .catch(this.handleError);
     };
     PostService.prototype.getNewPosts = function () {
+        var _this = this;
         return this.http.get(this.newPosts)
             .toPromise()
-            .then(function (response) { return response.json(); })
+            .then(function (response) { return _this.filterPosts(response.json()); })
             .catch(this.handleError);
     };
     PostService.prototype.getTopPosts = function () {
+        var _this = this;
         return this.http.get(this.topPosts)
             .toPromise()
-            .then(function (response) { return response.json(); })
+            .then(function (response) { return _this.filterPosts(response.json()); })
             .catch(this.handleError);
     };
     PostService.prototype.getMyPosts = function () {
@@ -49,6 +52,18 @@ var PostService = (function () {
     PostService.prototype.handleError = function (error) {
         console.error("An error has occurred retrieving posts");
         return Promise.reject(error.message || error);
+    };
+    PostService.prototype.filterPosts = function (posts) {
+        var hidden = JSON.parse(localStorage.getItem("hidden"));
+        if (hidden === null)
+            hidden = [];
+        console.log(hidden);
+        for (var i = 0; i < posts.length; i++) {
+            var index = hidden.indexOf(posts[i].pid);
+            if (index != -1)
+                posts[i].pid = null;
+        }
+        return posts;
     };
     PostService = __decorate([
         core_1.Injectable(), 
