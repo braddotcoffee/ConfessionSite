@@ -102,6 +102,7 @@ var PersonalPostComponent = (function () {
             callback: function (result) { return; }
         });
         $(".modal").on("shown.bs.modal", function () {
+            $("#directLink").focus();
             $("#directLink").select();
         });
     };

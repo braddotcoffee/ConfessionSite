@@ -165,6 +165,7 @@ export class PostComponent implements OnInit{
     })
 
     $(".modal").on("shown.bs.modal", function(){
+      $("#directLink").focus();
       $("#directLink").select();
     });
   }

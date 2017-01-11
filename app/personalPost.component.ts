@@ -153,6 +153,7 @@ export class PersonalPostComponent implements OnInit{
     })
 
     $(".modal").on("shown.bs.modal", function(){
+      $("#directLink").focus();
       $("#directLink").select();
     });
   }
