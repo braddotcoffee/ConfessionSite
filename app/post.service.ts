@@ -56,11 +56,28 @@ export class PostService {
     if (hidden === null)
       hidden = [];
 
+    if(hidden.length === 0)
+      return posts;
+
+    var hiddenVisited = Array.apply(null, Array(hidden.length)).map(Number.prototype.valueOf, 0);
+
     for(var i:number = 0; i < posts.length; i++){
       var index = hidden.indexOf(posts[i].pid);
-      if (index != -1)
+      if (index != -1){
         posts[i].pid = null;
+        hiddenVisited[index] = 1;
+      }
     }
+
+    index = hiddenVisited.indexOf(0);
+    while(index != -1){
+      hidden.splice(index, 1);
+      hiddenVisited[index] = 1;
+      index = hiddenVisited.indexOf(0);
+    }
+
+    localStorage.setItem("hidden", JSON.stringify(hidden));
+
     return posts;
 
   }

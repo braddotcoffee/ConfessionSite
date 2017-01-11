@@ -338,3 +338,18 @@ clear: both;
   h2 {
     text-align: center;
   }
+
+  pre {
+    display: inherit;
+    font-family: inherit;
+    padding: 0;
+    margin: 0;
+    font-size: inherit;
+    line-height: inherit;
+    color: inherit;
+    word-break: inherit;
+    word-wrap: inherit;
+    background-color: inherit;
+    border: inherit;
+    border-radius: inherit;
+  }
