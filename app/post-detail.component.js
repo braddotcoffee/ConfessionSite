@@ -10,21 +10,25 @@ var __metadata = (this && this.__metadata) || function (k, v) {
 };
 var core_1 = require('@angular/core');
 var router_1 = require('@angular/router');
-var common_1 = require('@angular/common');
+var router_2 = require('@angular/router');
 var post_service_1 = require('./post.service');
 require('rxjs/add/operator/switchMap');
 var PostDetailComponent = (function () {
-    function PostDetailComponent(postService, route, location) {
+    function PostDetailComponent(postService, route, router) {
         this.postService = postService;
         this.route = route;
-        this.location = location;
+        this.router = router;
     } // Inject PostService
     // Get Posts on Init //
     PostDetailComponent.prototype.ngOnInit = function () {
         var _this = this;
         this.route.params
             .switchMap(function (params) { return _this.postService.getPostById(params["pid"]); })
-            .subscribe(function (posts) { return _this.post = posts[0]; });
+            .subscribe(function (posts) {
+            if (posts.length === 0)
+                _this.router.navigateByUrl("/browse");
+            _this.post = posts[0];
+        });
     };
     PostDetailComponent = __decorate([
         core_1.Component({
@@ -32,7 +36,7 @@ var PostDetailComponent = (function () {
             providers: [post_service_1.PostService],
             template: "\n  <ul class=\"postsList\">\n    <li *ngIf=\"this.post\">\n      <post [post]=\"this.post\"></post>\n    </li>\n  </ul>\n  "
         }), 
-        __metadata('design:paramtypes', [post_service_1.PostService, router_1.ActivatedRoute, common_1.Location])
+        __metadata('design:paramtypes', [post_service_1.PostService, router_1.ActivatedRoute, router_2.Router])
     ], PostDetailComponent);
     return PostDetailComponent;
 }());

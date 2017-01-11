@@ -3,6 +3,7 @@ import { OnInit         }  from  '@angular/core';
 import { Input          }  from  '@angular/core';
 import { ActivatedRoute }  from  '@angular/router';
 import { Params         }  from  '@angular/router';
+import { Router         }  from  '@angular/router';
 import { Location       }  from  '@angular/common';
 
 import { Post           }  from  './post';
@@ -29,13 +30,17 @@ export class PostDetailComponent implements OnInit {
   constructor(
     private postService: PostService,
     private route: ActivatedRoute,
-    private location: Location
+    private router: Router
   ) {  } // Inject PostService
 
   // Get Posts on Init //
   ngOnInit(): void {
     this.route.params
       .switchMap((params: Params) => this.postService.getPostById(params["pid"]))
-      .subscribe(posts => this.post = posts[0]);
+      .subscribe(posts => {
+        if(posts.length === 0)
+          this.router.navigateByUrl("/browse");
+        this.post = posts[0];
+      });
   }
 }

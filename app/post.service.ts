@@ -47,13 +47,13 @@ export class PostService {
     .catch(this.handleError);
   }
 
-  getPostById(pid: string): Promise<Post> {
+  getPostById(pid: string): Promise<Post[]> {
     let headers = new Headers({"Content-Type": "application/json"});
     let options = new RequestOptions({headers: headers});
 
     return this.http.post(this.postId, {"pid": pid}, options)
     .toPromise()
-    .then(response => response.json() as Post)
+    .then(response => response.json() as Post[])
     .catch(this.handleError);
   }
 

@@ -108,7 +108,6 @@ var PostComponent = (function () {
             callback: function (result) { return; }
         });
         $(".modal").on("shown.bs.modal", function () {
-            console.log("HERE");
             $("#directLink").select();
         });
     };
