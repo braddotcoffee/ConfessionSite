@@ -95,7 +95,7 @@ var PostComponent = (function () {
     PostComponent.prototype.clipboard = function () {
         bootbox.dialog({
             title: "Direct Link to Post!",
-            message: "<form class='bootbox-form' onsubmit='return false'><input type='text' id='directLink' class='bootbox-input bootbox-input-text form-control' value='www.tempfession.com/post/" + this.post.pid + "'></form>",
+            message: "<form class='bootbox-form' onsubmit='return false'><input type='text' id='directLink' class='bootbox-input bootbox-input-text form-control' value='www.tempfession.com/post/" + this.post.pid + "' READONLY></form>",
             closeButton: true,
             onEscape: true,
             buttons: {

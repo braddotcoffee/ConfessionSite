@@ -50,18 +50,18 @@ function postResponse(req, post){
 }
 
 function genID() {
-    var userID = "";
-    for (var i = 0; i < 16; i++) {
-        var number = Math.random();
-        number *= 42;
-        number += 74;
-        number = Math.floor(number);
-        if(number === 92)
-          number = 93;
-        userID += String.fromCharCode(number);
-    }
-    console.log(userID);
-    return userID;
+  var userID = "";
+  for (var i = 0; i < 16; i++) {
+    var number = Math.random();
+    number *= 42;
+    number += 74;
+    number = Math.floor(number);
+    if(number === 92)
+      number = 93;
+    userID += String.fromCharCode(number);
+  }
+  console.log(userID);
+  return userID;
 }
 
 function handleLike(button){

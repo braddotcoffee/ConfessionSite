@@ -329,6 +329,10 @@ clear: both;
     padding: 0 !important;
   }
 
+  input {
+    background: rgb(255,255,255) !important;
+  }
+
   .hidden {
     display: none;
     width: 0;
@@ -353,3 +357,4 @@ clear: both;
     border: inherit;
     border-radius: inherit;
   }
+
