@@ -4,6 +4,7 @@ import { Post        }  from  './post';
 import { LikeService }  from  './like.service';
 
 declare var bootbox: any;
+declare var $: any;
 
 @Component({
   selector: 'post',
@@ -19,6 +20,9 @@ declare var bootbox: any;
       </div>
       <div class="divider"></div>
       <div class="panel-footer">
+        <button class="clipboard" (click)="clipboard()">
+          <i class="fa fa-share-alt" aria-hidden="true"></i>
+        </button>
         <button class="like" (click)="handleLike()">
           <i class="fa {{this.liked}}" aria-hidden="true"></i>
         </button>
@@ -142,5 +146,27 @@ export class PostComponent implements OnInit{
       }
 
     }); 
+  }
+
+  clipboard(): void {
+    bootbox.dialog({
+      title: "Direct Link to Post!",
+      message: "<form class='bootbox-form' onsubmit='return false'><input type='text' id='directLink' class='bootbox-input bootbox-input-text form-control' value='www.tempfession.com/post/"+this.post.pid+"'></form>",
+      closeButton: true,
+      onEscape: true,
+      buttons: {
+        ok: {
+          label: "Done",
+          className: "btn-primary",
+          callback: function(){ return; }
+        }
+      },
+      callback: function(result:string){ return; }
+    })
+
+    $(".modal").on("shown.bs.modal", function(){
+      console.log("HERE");
+      $("#directLink").select();
+    });
   }
 }

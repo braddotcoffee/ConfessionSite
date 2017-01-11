@@ -316,7 +316,7 @@ clear: both;
     }
   }
 
-  .like, .trash, .inappropriate {
+  .like, .trash, .inappropriate, .clipboard {
     border: none;
   }
 

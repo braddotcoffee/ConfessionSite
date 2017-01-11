@@ -92,6 +92,26 @@ var PostComponent = (function () {
             }
         });
     };
+    PostComponent.prototype.clipboard = function () {
+        bootbox.dialog({
+            title: "Direct Link to Post!",
+            message: "<form class='bootbox-form' onsubmit='return false'><input type='text' id='directLink' class='bootbox-input bootbox-input-text form-control' value='www.tempfession.com/post/" + this.post.pid + "'></form>",
+            closeButton: true,
+            onEscape: true,
+            buttons: {
+                ok: {
+                    label: "Done",
+                    className: "btn-primary",
+                    callback: function () { return; }
+                }
+            },
+            callback: function (result) { return; }
+        });
+        $(".modal").on("shown.bs.modal", function () {
+            console.log("HERE");
+            $("#directLink").select();
+        });
+    };
     __decorate([
         core_1.Input(), 
         __metadata('design:type', post_1.Post)
@@ -100,7 +120,7 @@ var PostComponent = (function () {
         core_1.Component({
             selector: 'post',
             providers: [like_service_1.LikeService],
-            template: "\n    <div class=\"panel post {{this.hidden}}\">\n      <div class=\"panel-heading\">\n        {{this.hour}}:{{this.minute}} {{this.mer}}\n        <span class=\"time-left\"> {{rem}} </span>\n      </div>\n      <div class=\"panel-body\">\n        {{post.body}}\n      </div>\n      <div class=\"divider\"></div>\n      <div class=\"panel-footer\">\n        <button class=\"like\" (click)=\"handleLike()\">\n          <i class=\"fa {{this.liked}}\" aria-hidden=\"true\"></i>\n        </button>\n        <button class=\"inappropriate\" (click)=\"inappropriate()\">\n          <i class=\"fa fa-times\" aria-hidden=\"true\"></i>\n        </button>\n      </div>\n    </div>\n  "
+            template: "\n    <div class=\"panel post {{this.hidden}}\">\n      <div class=\"panel-heading\">\n        {{this.hour}}:{{this.minute}} {{this.mer}}\n        <span class=\"time-left\"> {{rem}} </span>\n      </div>\n      <div class=\"panel-body\">\n        {{post.body}}\n      </div>\n      <div class=\"divider\"></div>\n      <div class=\"panel-footer\">\n        <button class=\"clipboard\" (click)=\"clipboard()\">\n          <i class=\"fa fa-share-alt\" aria-hidden=\"true\"></i>\n        </button>\n        <button class=\"like\" (click)=\"handleLike()\">\n          <i class=\"fa {{this.liked}}\" aria-hidden=\"true\"></i>\n        </button>\n        <button class=\"inappropriate\" (click)=\"inappropriate()\">\n          <i class=\"fa fa-times\" aria-hidden=\"true\"></i>\n        </button>\n      </div>\n    </div>\n  "
         }), 
         __metadata('design:paramtypes', [like_service_1.LikeService])
     ], PostComponent);

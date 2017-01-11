@@ -55,6 +55,18 @@ exports.deletePostDB = function(pid, res){
   })
 }
 
+exports.getPostByIdDB = function(pid, res){
+  client.query("SELECT NOW()::timestamp AS currentDate, * FROM posts WHERE pid=$1", [pid], function(err, result){
+    if (err)
+      console.log(err)
+    res.set({
+      "Content-Type": "application/json",
+      "X-Content-Type": "nosniff"
+    });
+    res.end(JSON.stringify(result.rows));
+  })
+}
+
 exports.disconnectDB = function(){
   client.end(function(){
     console.log("Disconnected!");

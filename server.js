@@ -79,6 +79,11 @@ app.post("/deletePost", function(req, res, next){
   db.deletePostDB(pid, res);
 })
 
+app.post("/postById", function(req, res, next){
+  var pid = req.body.pid;
+  db.getPostByIdDB(pid, res);
+})
+
 app.get("*", function(req, res){
   res.sendFile(path.join(__dirname, '/static', '/index.html'));
 });

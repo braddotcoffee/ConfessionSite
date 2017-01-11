@@ -19,6 +19,7 @@ var PostService = (function () {
         this.newPosts = "/newPosts";
         this.topPosts = "/topPosts";
         this.myPosts = "/myPosts";
+        this.postId = "/postById";
     }
     PostService.prototype.getBrowsePosts = function () {
         var _this = this;
@@ -45,6 +46,14 @@ var PostService = (function () {
         var headers = new http_1.Headers({ "Content-Type": "application/json" });
         var options = new http_2.RequestOptions({ headers: headers });
         return this.http.post(this.myPosts, { "uid": localStorage.getItem("UID") }, options)
+            .toPromise()
+            .then(function (response) { return response.json(); })
+            .catch(this.handleError);
+    };
+    PostService.prototype.getPostById = function (pid) {
+        var headers = new http_1.Headers({ "Content-Type": "application/json" });
+        var options = new http_2.RequestOptions({ headers: headers });
+        return this.http.post(this.postId, { "pid": pid }, options)
             .toPromise()
             .then(function (response) { return response.json(); })
             .catch(this.handleError);

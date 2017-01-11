@@ -18,6 +18,7 @@ var app_component_1 = require('./app.component');
 var top_component_1 = require('./top.component');
 var new_component_1 = require('./new.component');
 var post_component_1 = require('./post.component');
+var post_detail_component_1 = require('./post-detail.component');
 var personalPost_component_1 = require('./personalPost.component');
 var browse_component_1 = require('./browse.component');
 var myposts_component_1 = require('./myposts.component');
@@ -49,6 +50,10 @@ var AppModule = (function () {
                         component: myposts_component_1.MyPostsComponent
                     },
                     {
+                        path: 'post/:pid',
+                        component: post_detail_component_1.PostDetailComponent
+                    },
+                    {
                         path: '',
                         redirectTo: '/browse',
                         pathMatch: 'full'
@@ -63,6 +68,7 @@ var AppModule = (function () {
             declarations: [
                 new_component_1.NewComponent,
                 top_component_1.TopComponent,
+                post_detail_component_1.PostDetailComponent,
                 post_component_1.PostComponent,
                 personalPost_component_1.PersonalPostComponent,
                 browse_component_1.BrowseComponent,

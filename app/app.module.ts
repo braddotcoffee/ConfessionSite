@@ -10,6 +10,7 @@ import { AppComponent          }  from  './app.component';
 import { TopComponent          }  from  './top.component';
 import { NewComponent          }  from  './new.component';
 import { PostComponent         }  from  './post.component';
+import { PostDetailComponent   }  from  './post-detail.component';
 import { PersonalPostComponent }  from  './personalPost.component';
 import { BrowseComponent       }  from  './browse.component';
 import { MyPostsComponent      }  from  './myposts.component';
@@ -42,6 +43,11 @@ import { MyPostsComponent      }  from  './myposts.component';
       },
 
       {
+        path: 'post/:pid',
+        component: PostDetailComponent
+      },
+
+      {
         path: '',
         redirectTo: '/browse',
         pathMatch: 'full'
@@ -58,6 +64,7 @@ import { MyPostsComponent      }  from  './myposts.component';
   declarations: [
     NewComponent,
     TopComponent,
+    PostDetailComponent,
     PostComponent,
     PersonalPostComponent,
     BrowseComponent,
