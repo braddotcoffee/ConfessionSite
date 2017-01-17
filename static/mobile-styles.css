@@ -57,6 +57,34 @@ and (-webkit-min-device-pixel-ratio: 2) {
   masonry-brick {
     width: 100%;
   } 
+
+  div.navbar-header {
+    width: 100%;
+  }
+
+  a.navbar-left {
+    float: left;
+    text-align: center;
+    vertical-align: middle;
+    width: 70%;
+  }
+
+  #logo {
+    padding-top: 10%;
+  }
+}
+
+/* Landscape */
+@media only screen 
+and (min-device-width: 320px) 
+and (max-device-width: 480px)
+and (-webkit-min-device-pixel-ratio: 2)
+and (orientation: landscape) {
+
+  #logo {
+    padding-top: 2%;
+  }
+
 }
 
 /* ----------- iPhone 5 and 5S ----------- */
@@ -118,6 +146,34 @@ and (-webkit-min-device-pixel-ratio: 2) {
   masonry-brick {
     width: 100%;
   }
+
+  div.navbar-header {
+    width: 100%;
+  }
+
+  a.navbar-left {
+    float: left;
+    text-align: center;
+    vertical-align: middle;
+    width: 70%;
+  }
+
+  #logo {
+    padding-top: 10%;
+  }
+}
+
+/* Landscape */
+@media only screen 
+and (min-device-width: 320px) 
+and (max-device-width: 568px)
+and (-webkit-min-device-pixel-ratio: 2)
+and (orientation: landscape) {
+
+  #logo {
+    padding-top: 2%;
+  }
+
 }
 
 /* ----------- iPhone 6 ----------- */
@@ -180,9 +236,34 @@ and (-webkit-min-device-pixel-ratio: 2) {
     width: 100%;
   }
 
+  div.navbar-header {
+    width: 100%;
+  }
+
+  a.navbar-left {
+    float: left;
+    text-align: center;
+    vertical-align: middle;
+    width: 70%;
+  }
+
+  #logo {
+    padding-top: 10%;
+  }
 
 }
 
+/* Landscape */
+@media only screen 
+and (min-device-width: 375px) 
+and (max-device-width: 667px) 
+and (-webkit-min-device-pixel-ratio: 2)
+and (orientation: landscape) { 
+  #logo {
+    padding-top: 2%;
+  }
+
+}
 /* ----------- iPhone 6+ ----------- */
 
 /* Portrait and Landscape */
@@ -243,6 +324,33 @@ and (-webkit-min-device-pixel-ratio: 3) {
     width: 100%;
   }
 
+  div.navbar-header {
+    width: 100%;
+  }
+
+  a.navbar-left {
+    float: left;
+    text-align: center;
+    vertical-align: middle;
+    width: 70%;
+  }
+
+  #logo {
+    padding-top: 10%;
+  }
+
+}
+
+/* Landscape */
+@media only screen 
+and (min-device-width: 414px) 
+and (max-device-width: 736px) 
+and (-webkit-min-device-pixel-ratio: 3)
+and (orientation: landscape) { 
+
+  #logo {
+    padding-top: 2%;
+  }
 
 }
 
@@ -306,6 +414,32 @@ and (-webkit-device-pixel-ratio: 2) {
     width: 100%;
   }
 
+  div.navbar-header {
+    width: 100%;
+  }
+
+  a.navbar-left {
+    float: left;
+    text-align: center;
+    vertical-align: middle;
+    width: 70%;
+  }
+
+  #logo {
+    padding-top: 10%;
+  }
+}
+
+/* Landscape */
+@media screen 
+and (device-width: 320px) 
+and (device-height: 640px) 
+and (-webkit-device-pixel-ratio: 2) 
+and (orientation: landscape) {
+
+  #logo {
+    padding-top: 2%;
+  }
 
 }
 
@@ -369,6 +503,32 @@ and (-webkit-device-pixel-ratio: 3) {
     width: 100%;
   }
 
+  div.navbar-header {
+    width: 100%;
+  }
+
+  a.navbar-left {
+    float: left;
+    text-align: center;
+    vertical-align: middle;
+    width: 70%;
+  }
+
+  #logo {
+    padding-top: 10%;
+  }
+}
+
+/* Landscape */
+@media screen 
+and (device-width: 320px) 
+and (device-height: 640px) 
+and (-webkit-device-pixel-ratio: 3) 
+and (orientation: landscape) {
+
+  #logo {
+    padding-top: 2%;
+  }
 
 }
 
@@ -432,6 +592,32 @@ and (-webkit-device-pixel-ratio: 3) {
     width: 100%;
   }
 
+  div.navbar-header {
+    width: 100%;
+  }
+
+  a.navbar-left {
+    float: left;
+    text-align: center;
+    vertical-align: middle;
+    width: 70%;
+  }
+
+  #logo {
+    padding-top: 10%;
+  }
+}
+
+/* Landscape */
+@media screen 
+and (device-width: 360px) 
+and (device-height: 640px) 
+and (-webkit-device-pixel-ratio: 3) 
+and (orientation: landscape) {
+
+  #logo {
+    padding-top: 2%;
+  }
 
 }
 
@@ -494,7 +680,31 @@ and (-webkit-device-pixel-ratio: 3) {
   masonry-brick {
     width: 100%;
   }
+  div.navbar-header {
+    width: 100%;
+  }
 
+  a.navbar-left {
+    float: left;
+    text-align: center;
+    vertical-align: middle;
+    width: 70%;
+  }
+
+  #logo {
+    padding-top: 10%;
+  }
 }
 
+/* Landscape */
+@media screen 
+and (device-width: 360px) 
+and (device-height: 640px) 
+and (-webkit-device-pixel-ratio: 3) 
+and (orientation: landscape) {
 
+  #logo {
+    padding-top: 2%;
+  }
+
+}

@@ -358,3 +358,22 @@ clear: both;
     border-radius: inherit;
   }
 
+  div.navbar-header {
+    width: 30%;
+    height: 100%;
+  }
+
+  a.navbar-left {
+    margin: 0;
+    padding: 0;
+  }
+
+  #logo {
+    width: 100%;
+    height: 100%;
+  }
+
+  a #logo {
+    width: 100%;
+    height: 100%;
+  }
