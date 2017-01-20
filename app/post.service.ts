@@ -59,24 +59,36 @@ export class PostService {
 
   private handleError(error: any): Promise<any>{
     console.error("An error has occurred retrieving posts");
+    console.error(error);
     return Promise.reject(error.message || error);
   }
 
   private filterPosts(posts: Post[]): Post[]{
     var hidden = JSON.parse(localStorage.getItem("hidden"));
+    var likedPosts = JSON.parse(localStorage.getItem("likedPosts"));
+
     if (hidden === null)
       hidden = [];
+    if(likedPosts === null)
+      likedPosts = [];
 
-    if(hidden.length === 0)
+    if(hidden.length === 0 && likedPosts.length === 0)
       return posts;
 
     var hiddenVisited = Array.apply(null, Array(hidden.length)).map(Number.prototype.valueOf, 0);
+    var likedVisited = Array.apply(null, Array(likedPosts.length)).map(Number.prototype.valueOf, 0);
 
     for(var i:number = 0; i < posts.length; i++){
       var index = hidden.indexOf(posts[i].pid);
       if (index != -1){
         posts[i].pid = null;
         hiddenVisited[index] = 1;
+      }
+
+      index = likedPosts.indexOf(posts[i].pid)
+
+      if(index != -1){
+        likedVisited[index] = 1;
       }
     }
 
@@ -87,7 +99,16 @@ export class PostService {
       index = hiddenVisited.indexOf(0);
     }
 
+    index = likedVisited.indexOf(0);
+    while(index != -1){
+      likedPosts.splice(index,1);
+      likedVisited[index] = 1;
+      index = likedVisited.indexOf(0);
+    }
+
     localStorage.setItem("hidden", JSON.stringify(hidden));
+    localStorage.setItem("likedPosts", JSON.stringify(likedPosts));
+
 
     return posts;
 
